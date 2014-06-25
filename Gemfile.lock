@@ -1,3 +1,9 @@
+GIT
+  remote: git@github.com:voxmedia/omniauth_service.git
+  revision: d5e022036a85da663e50ba6d1087e5cc7bb342db
+  specs:
+    omniauth_service (0.0.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -145,7 +151,9 @@ DEPENDENCIES
   dotenv-rails
   jbuilder (~> 2.0)
   jquery-rails
+  omniauth
   omniauth-google-oauth2
+  omniauth_service!
   rails (= 4.1.1)
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)
