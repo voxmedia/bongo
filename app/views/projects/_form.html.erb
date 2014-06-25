@@ -11,19 +11,20 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :title %><br>
-    <%= f.text_field :title %>
+    <%= f.text_field :title, class: "form-control" %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :kit_id %><br>
-    <%= f.text_field :kit_id %>
+    <%= f.text_field :kit_id, class: "form-control"  %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :typekit_token %><br>
-    <%= f.text_field :typekit_token %>
+    <%= f.text_field :typekit_token, class: "form-control"  %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="form-group">
+    <%= f.submit 'Submit', class: "btn btn-primary" %>
+    <%= link_to 'Back', projects_path, class: "btn btn-default" %>
   </div>
 <% end %>

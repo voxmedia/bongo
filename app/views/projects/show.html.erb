@@ -13,30 +13,26 @@
 <h2>Typekit</h2>
 
 <p>
-  <%= link_to "Edit kit", "https://typekit.com/kit_editor/kits/#{@project.kit_id}" %>
-</p>
-
-<p>
-  <strong>Typekit token:</strong>
-  <%= @project.typekit_token %>
-</p>
-
-<p>
   <strong>Kit name:</strong>
-  <%= @typekit['kit']['name'] %>
+  <%= @typekit['kit']['name'] %> (<%= link_to "Edit kit", "https://typekit.com/kit_editor/kits/#{@project.kit_id}" %>)
 </p>
 
 <p>
   <strong>Domains:</strong>
   <%= @typekit['kit']['domains'].join(", ") %>
+  <% if !@typekit['kit']['domains'].include?(request.host) %>
+    <br/><strong>Warning!</strong> Please make sure <%= request.host %> is allowed in your <%= link_to "kit settings", "https://typekit.com/kit_editor/kits/#{@project.kit_id}" %>, or your fonts won't be visible.
+  <% end %>
 </p>
 
 <p>
   <strong>Font families:</strong>
-  <%- @typekit['kit']['families'].each do |f| %>
-    <span style='font-family:<%= f['css_stack'] %>'><%= f['name'] %></span>
-  <% end %>
 </p>
+<ul>
+  <%- @typekit['kit']['families'].each do |f| %>
+    <li style='font-family:<%= f['css_stack'] %>'><%= f['name'] %></li>
+  <% end %>
+</ul>
 
 <%= link_to 'Edit', edit_project_path(@project) %> |
 <%= link_to 'Back', projects_path %>

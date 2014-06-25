@@ -45,4 +45,5 @@ gem 'omniauth_service',         :git => 'git@github.com:voxmedia/omniauth_servic
 # gem 'debugger', group: [:development, :test]
 
 gem 'faraday'
+gem 'bootstrap-sass', '~> 3.1.1'
 
