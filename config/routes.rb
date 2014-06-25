@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  resources :projects
+
   # Auth Support
   get '/auth/:provider/callback' => 'sessions#create'
   get '/auth/failure'            => 'sessions#failure'
@@ -10,7 +12,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  root 'projects#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

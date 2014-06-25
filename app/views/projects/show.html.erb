@@ -1,0 +1,42 @@
+<% content_for :typekit do %>
+  <script type="text/javascript" src="//use.typekit.net/<%= @project.kit_id %>.js"></script>
+  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+<% end %>
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @project.title %>
+</p>
+
+<h2>Typekit</h2>
+
+<p>
+  <%= link_to "Edit kit", "https://typekit.com/kit_editor/kits/#{@project.kit_id}" %>
+</p>
+
+<p>
+  <strong>Typekit token:</strong>
+  <%= @project.typekit_token %>
+</p>
+
+<p>
+  <strong>Kit name:</strong>
+  <%= @typekit['kit']['name'] %>
+</p>
+
+<p>
+  <strong>Domains:</strong>
+  <%= @typekit['kit']['domains'].join(", ") %>
+</p>
+
+<p>
+  <strong>Font families:</strong>
+  <%- @typekit['kit']['families'].each do |f| %>
+    <span style='font-family:<%= f['css_stack'] %>'><%= f['name'] %></span>
+  <% end %>
+</p>
+
+<%= link_to 'Edit', edit_project_path(@project) %> |
+<%= link_to 'Back', projects_path %>

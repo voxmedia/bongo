@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140625161800) do
+ActiveRecord::Schema.define(version: 20140625184246) do
 
   create_table "authorizations", force: true do |t|
     t.integer  "user_id",       null: false
@@ -26,6 +26,14 @@ ActiveRecord::Schema.define(version: 20140625161800) do
     t.boolean  "expires"
     t.integer  "expires_at"
     t.string   "refresh_token"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "projects", force: true do |t|
+    t.string   "title"
+    t.string   "kit_id"
+    t.string   "typekit_token"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
