@@ -27,7 +27,9 @@
 </p>
 <ul>
   <%- @typekit['kit']['families'].each do |f| %>
-    <li style='font-family:<%= f['css_stack'] %>'><%= f['name'] %></li>
+    <%- f['variations'].each do |v| %>
+      <li style='font-family:<%= f['css_stack'] %>;<%= font_variation_to_css(v) %>'><%= f['name'] %> (<%= font_variation_to_string(v) %>)</li>
+    <% end %>
   <% end %>
 </ul>
 
