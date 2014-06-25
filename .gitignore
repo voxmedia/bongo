@@ -6,10 +6,19 @@
 
 # Ignore bundler config.
 /.bundle
+/.env
+vendor/bundle/
 
 # Ignore the default SQLite database.
 /db/*.sqlite3
 /db/*.sqlite3-journal
+
+# Stuffs from sbn/.gitignore
+.#*
+.DS_Store
+.bundle
+.bundle-*/
+.foreman
 
 # Ignore all logfiles and tempfiles.
 /log/*.log
