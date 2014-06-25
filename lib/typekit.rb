@@ -1,14 +1,14 @@
 class Typekit
   def initialize(token)
     @token = token
-    @conn = Faraday.new(:url => "https://typekit.com") do |builder|
+    @conn = Faraday.new(:url => "https://typekit.com/api/v1/") do |builder|
       builder.adapter :net_http
     end
     nil
   end
 
   def get_kit_info(id)
-    path = "/api/v1/json/kits/#{id}"
+    path = "json/kits/#{id}"
     begin
       response = @conn.get(path) do |req|
         req.headers['X-Typekit-Token'] = @token
