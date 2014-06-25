@@ -152,6 +152,7 @@ PLATFORMS
 DEPENDENCIES
   coffee-rails (~> 4.0.0)
   dotenv-rails
+  faraday
   foreman
   jbuilder (~> 2.0)
   jquery-rails

@@ -44,3 +44,5 @@ gem 'omniauth_service',         :git => 'git@github.com:voxmedia/omniauth_servic
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+gem 'faraday'
+
