@@ -1,0 +1,11 @@
+$m : '.m-toggle';
+
+#{$m} {
+  #{$m}__admin {
+    position: fixed;
+    color: white;
+    top: 10px;
+    left: 10px;
+    z-index: 2;
+  }
+}
