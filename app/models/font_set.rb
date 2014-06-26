@@ -27,8 +27,21 @@ class FontSet < ActiveRecord::Base
       end
       weight = variation_id.last.to_i * 100
       family = self.project.kit['kit']['families'].find { |u| u['id'] == self.instance_eval(element).split(':').first }
-      "font-family:#{family['css_stack']};font-weight:#{weight};font-style:#{style}"
+      "font-family:#{family['css_stack']};font-weight:#{weight};font-style:#{style};"
     rescue
+      ''
+    end
+  end
+
+  def compiled_css
+    elements_css = ""
+    ["main_headline", "secondary_headline", "byline", "body", "pullquote", "blockquote", "big_number", "big_number_label"].each do |e|
+      elements_css += ".#{e} { #{self.element_css(e)} } "
+    end
+    css = ".#{self.slug} { #{elements_css} #{self.sass} }"
+    sass = begin
+      Sass::Engine.new(css, { syntax: :scss }).to_css
+    rescue Sass::SyntaxError
       ''
     end
   end

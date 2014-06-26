@@ -7,6 +7,14 @@ class Project < ActiveRecord::Base
     json = typekit.get_kit_info(self.kit_id)
   end
 
+  def compiled_css
+    css = ""
+    self.font_sets.each do |f|
+      css += f.compiled_css
+    end
+    css
+  end
+
   protected
 
   def update_slug
