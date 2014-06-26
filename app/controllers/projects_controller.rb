@@ -12,6 +12,7 @@ class ProjectsController < ApplicationController
   # GET /projects/1/details
   # GET /projects/1/details.json
   def details
+    @typekit = @project.kit
   end
 
   def show
