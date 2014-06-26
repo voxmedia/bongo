@@ -23,5 +23,6 @@ module Bongo
       "#{Rails.root}/lib"
     ]
     config.assets.precompile += %w( admin.css admin.js styles.css bongo.js )
+    config.serve_static_assets = true
   end
 end
