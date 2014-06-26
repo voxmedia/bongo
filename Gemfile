@@ -28,7 +28,7 @@ gem 'foreman',       group: :development
 # Authentication - https://github.com/voxmedia/omniauth_service
 gem 'omniauth'
 gem 'omniauth-google-oauth2'
-gem 'omniauth_service',         :git => 'git@github.com:voxmedia/omniauth_service.git'
+gem 'omniauth_service',         :git => 'git://github.com/voxmedia/omniauth_service.git'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
