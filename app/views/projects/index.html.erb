@@ -13,7 +13,9 @@
       <tr>
         <td><%= project.title %></td>
         <td>
-          <%= link_to 'Launch!', project, class: "btn btn-primary" %>
+          <% if project.font_sets.size > 0 %>
+            <%= link_to 'Launch!', project, class: "btn btn-primary" %>
+          <% end %>
           <%= link_to 'Details', project_details_path(project), class: "btn btn-default" %>
           <%= link_to 'Edit', edit_project_path(project), class: "btn btn-default" %>
           <%= link_to 'Destroy', project, method: :delete, data: { confirm: "Oh god are you sure you want to delete #{project.title}?" }, class: "btn btn-danger" %>

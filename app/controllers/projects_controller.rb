@@ -16,9 +16,13 @@ class ProjectsController < ApplicationController
   end
 
   def show
-    font_set = @project.font_sets.first
     respond_to do |format|
-      format.html { redirect_to show_font_set_url(@project.id, @project.slug, font_set.id, font_set.slug)}
+      if @project.font_sets.size == 0
+        format.html { redirect_to project_details_url(@project), notice: 'You need to add font sets to this project before you can launch it!' }
+      else
+        font_set = @project.font_sets.first
+        format.html { redirect_to show_font_set_url(@project.id, @project.slug, font_set.id, font_set.slug)}
+      end
     end
   end
 

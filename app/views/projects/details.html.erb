@@ -31,7 +31,9 @@
           </ul>
         </td>
         <td>
-          <%= link_to 'Launch!', @project, class: "btn btn-primary" %>
+          <% if @project.font_sets.size > 0 %>
+            <%= link_to 'Launch!', @project, class: "btn btn-primary" %>
+          <% end %>
           <%= link_to 'Edit project', edit_project_path(@project), class: "btn btn-primary"  %>
           <%= link_to "Edit kit", "https://typekit.com/kit_editor/kits/#{@project.kit_id}", class: "btn btn-primary" %>
           <%= link_to 'Destroy project', @project, method: :delete, data: { confirm: "Oh god are you sure you want to delete #{@project.title}?" }, class: "btn btn-danger"  %>
