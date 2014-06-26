@@ -3,14 +3,14 @@
 <head>
   <title>Bongo</title>
   <%= stylesheet_link_tag    'styles', media: 'all' %>
-  <%= javascript_include_tag 'app' %>
   <%= csrf_meta_tags %>
   <%= yield :typekit %>
   <%= yield :compiled_css %>
 </head>
 <body <%= yield :body_class %>>
-
 <%= yield %>
-
+<%= yield :bongo_js %>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<%= javascript_include_tag 'bongo' %>
 </body>
 </html>

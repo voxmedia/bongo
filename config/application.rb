@@ -22,6 +22,6 @@ module Bongo
     config.autoload_paths += [
       "#{Rails.root}/lib"
     ]
-    config.assets.precompile += %w( admin.css admin.js styles.css app.js )
+    config.assets.precompile += %w( admin.css admin.js styles.css bongo.js )
   end
 end

@@ -9,19 +9,26 @@
 </style>
 <% end %>
 
+<% content_for :bongo_js do %>
+  <script>
+    var BNG = BNG || {};
+    BNG.FontSets = <%= @fs_json.html_safe %>;
+  </script>
+<% end %>
+
 <% content_for :body_class do %>
   class="<%= @font_set.slug %>"
 <% end %>
 
-<a href="#" class="m-toggle admin icon-cog"></a>
+<a href="#" class="m-toggle admin icon-cog js-edit" title="Edit this font set"></a>
 
 <toggle class="m-toggle paginate left">
-  <a href="#" class="icon-left-open"></a>
-  <span class="sets">1 / 6</span>
+  <a href="#" class="icon-left-open js-prev"></a>
+  <span class="sets"><span class="js-current">1</span> / <span class="js-total"></span></span>
 </toggle>
 
 <toggle class="m-toggle paginate right">
-  <a href="#" class="icon-right-open"></a>
+  <a href="#" class="icon-right-open js-next"></a>
   <a href="#" class="info">Info</a>
 </toggle>
 

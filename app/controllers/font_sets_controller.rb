@@ -4,6 +4,13 @@ class FontSetsController < ApplicationController
   layout "admin"
 
   def show
+    font_sets_array = []
+    @project.font_sets.each do |fs|
+      font_sets_array << { id: fs.id, slug: fs.slug, name: fs.name, url: show_font_set_url(@project.id, @project.slug, fs.id, fs.slug), edit_url: edit_project_font_set_url(@project, fs) }
+    end
+    current = font_sets_array.find_index{ |f| f[:id] == @font_set.id }
+    font_sets = { current: current, total: @project.font_sets.size, font_sets: font_sets_array }
+    @fs_json = font_sets.to_json
     respond_to do |format|
       format.html { render layout: "application" }
     end
