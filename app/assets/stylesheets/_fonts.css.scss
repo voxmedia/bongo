@@ -1,0 +1,36 @@
+h1 { font-size: 2em; }
+h2 { font-size: 1.5em; }
+h3 { font-size: 1.3em; }
+h4 { font-size: 1em; }
+h5 { font-size: 0.8em; }
+h6 { font-size: 0.7em; }
+
+@media (min-width: $break_large) {
+  h1 { font-size: 3.5em; }
+  h2 { font-size: 1.5em; }
+  h3 { font-size: 1.3em; }
+  h4 { font-size: 1em; }
+  h5 { font-size: 0.8em; }
+  h6 { font-size: 0.7em; }
+}
+
+p {
+  margin-bottom: 20px;
+  line-height: 1.35;
+}
+
+span.byline {
+  display: block;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+blockquote {
+  font-size: 2.2em;
+  line-height: 1.2;
+  font-weight: bold;
+}
+
+body {
+  line-height: 1.1;
+}

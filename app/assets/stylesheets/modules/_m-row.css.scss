@@ -1,0 +1,189 @@
+$m : '.m-row';
+
+#{$m} {
+  @extend .-clearfix;
+  position: relative;
+  #{$m}__box {
+    position: relative;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top center;
+    &.half {
+      width: 50%;
+      @media (max-width: $break_medium) {
+        width: 100%;
+        float: none;
+      }
+      &.has_background_image {
+        @extend .-overlay-color;
+      }
+      @media (min-width: $break_medium) {
+        &.left {
+          float: left;
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom :0;
+        }
+        &.right {
+          margin-left: 50%;
+        }
+      }
+    }
+    &.third {
+      width: (100%/3);
+      &.has_background_image {
+        @extend .-overlay;
+      }
+      &.last {
+        width: (100%/3);
+        margin-left: (100%/3) * 2;
+      }
+      &.first,
+      &.mid {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+      }
+      &.first {
+        left: 0;
+        @media (max-width: $break_medium) {
+          padding: 35% 0;
+        }
+      }
+      &.mid {
+        left: (100%/3);
+        text-align: center;
+        @media (max-width: $break_medium) {
+          padding: 10% 15px;
+        }
+      }
+      &.first,
+      &.mid,
+      &.last {
+        @media (max-width: $break_medium) {
+          width: 100%;
+          position: relative;
+          margin: 0;
+          left: auto;
+          right: auto;
+          top: auto;
+          bottom: auto;
+        }
+      }
+    }
+    .small_lede {
+      width: 100%;
+    }
+  }
+  #{$m}__inner {
+    padding: 0;
+    @media (min-width: $break_medium) {
+      padding: 0 25px 25px 25px;
+      &.three-up {
+        padding: 25px;
+        position: relative;
+        height: 100%;
+      }
+      &.feature {
+        padding: 20% 25px 25px;
+      }
+    }
+    .text {
+      @media (max-width: $break_medium) {
+        padding: 15px;
+      }
+      &.big_headline {
+        position: absolute;
+        bottom: 20%;
+        max-width: 500px;
+        text-align: center;
+        margin: 0 auto;
+        left: 0;
+        right: 0;
+        span.byline {
+          color: white;
+        }
+      }
+      &.feature {
+        @extend .-overlay-color;
+        h1 {
+          position: relative;
+          text-transform: uppercase;
+          color: white;
+          font-weight: bold;
+          margin-bottom: 7px;
+        }
+        span.byline {
+          color: white;
+        }
+        @media (max-width: $break_medium) {
+          padding: 30% 25px 25px;
+          text-align: center;
+        }
+      }
+    }
+    &.has_background_image {
+      padding: 50% 25px;
+    }
+    a.logo {
+      position: absolute;
+      top: 10%;
+      right: 0;
+      left: 0;
+      max-width: 200px;
+      margin: 0 auto;
+    }
+    
+    // specific type styles
+    h1.big_headline {
+      position: relative;
+      text-transform: uppercase;
+      font-weight: bold;
+      color: white;
+      margin-bottom: 10px;
+    }
+    h1.small_lede {
+      font-weight: bold;
+      margin: 20px 0 10px;
+    }
+    blockquote {
+      margin-bottom: 20px;
+      font-style: italic;
+      color: $primary;
+      display: block;
+    }
+    span.number {
+      left: 0;
+      right: 0;
+      display: block;
+      font-size: 10em;
+      font-weight: bold;
+      color: $primary;
+      i.label {
+        color: #282828;
+        display: block;
+        font-size: 26px;
+        font-style: italic;
+      }
+      @media (min-width: $break_medium) {
+        @include vertical-align;
+      }
+    }
+    q {
+      position: relative;
+      padding: 15% 10px;
+      display: block;
+      font-size: 2em;
+      text-transform: uppercase;
+      color: white;
+      @media (min-width: $break_medium) and (max-width: $break_large) {
+        font-size: 1.25em;
+      }
+      span {
+        color: $secondary;
+      }
+    }
+  }
+}

@@ -1,0 +1,54 @@
+//breakpoints
+$break_large: 1000px;
+$break_medium: 650px;
+$break_small: 500px;
+
+//colors
+$primary: #cc3c3c;
+$secondary: #008feb;
+
+
+//extends
+.-text-shadow {
+  text-shadow: 0 0 7px rgba(black, 0.75);
+}
+
+.-overlay-color {
+  &:before {
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    top: 0;
+    background: rgba($secondary, 0.35);
+  }
+}
+
+.-overlay {
+  &:before {
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    top: 0;
+    background: rgba(#282828, 0.75);
+  }
+}
+
+.-clearfix {
+  &:after {
+    content: "";
+    clear: both;
+    display: block;
+    height: 0px;
+    width: 100%;
+  }
+}
