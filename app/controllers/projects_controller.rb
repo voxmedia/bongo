@@ -13,6 +13,12 @@ class ProjectsController < ApplicationController
     @typekit = @project.kit
   end
 
+  def show
+    respond_to do |format|
+      format.html { render layout: "project" }
+    end
+  end
+
   # GET /projects/new
   def new
     @project = Project.new

@@ -31,6 +31,7 @@
           </ul>
         </td>
         <td>
+          <%= link_to 'Launch!', @project, class: "btn btn-primary" %>
           <%= link_to 'Edit project', edit_project_path(@project), class: "btn btn-primary"  %>
           <%= link_to "Edit kit", "https://typekit.com/kit_editor/kits/#{@project.kit_id}", class: "btn btn-primary" %>
           <%= link_to 'Destroy project', @project, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger"  %>

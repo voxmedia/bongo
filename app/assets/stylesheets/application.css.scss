@@ -10,7 +10,6 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
  *= require_self
  */
 
@@ -18,3 +17,11 @@
 @import "bootstrap/theme";
 
 body { padding-top: 70px; }
+
+$m: '.m-project';
+
+#{$m}__table ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}

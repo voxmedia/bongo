@@ -22,5 +22,6 @@ module Bongo
     config.autoload_paths += [
       "#{Rails.root}/lib"
     ]
+    config.assets.precompile += %w( project.css project.js )
   end
 end
