@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  resources :font_sets
+
   resources :projects
 
   # Auth Support
@@ -40,6 +42,10 @@ Rails.application.routes.draw do
   #     resources :comments, :sales
   #     resource :seller
   #   end
+
+  resources :projects do
+    resources :font_sets
+  end
 
   # Example resource route with more complex sub-resources:
   #   resources :products do

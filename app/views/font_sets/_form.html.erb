@@ -1,0 +1,66 @@
+<%= form_for [@project, @font_set] do |f| %>
+  <% if @font_set.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@font_set.errors.count, "error") %> prohibited this font_set from being saved:</h2>
+
+      <ul>
+      <% @font_set.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label "Headline (primary)" %>
+    <%= f.select(:main_headline, options_for_select(@font_families, @font_set.main_headline), {}, { class: "form-control" } ) %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label "Headline (secondary)" %>
+    <%= f.select(:secondary_headline, options_for_select(@font_families, @font_set.secondary_headline), {}, { class: "form-control" } ) %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label "Body copy" %>
+    <%= f.select(:body, options_for_select(@font_families, @font_set.body), {}, { class: "form-control" } ) %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label "Byline" %>
+    <%= f.select(:byline, options_for_select(@font_families, @font_set.byline), {}, { class: "form-control" } ) %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label "Pullquote" %>
+    <%= f.select(:pullquote, options_for_select(@font_families, @font_set.pullquote), {}, { class: "form-control" } ) %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label "Blockquote" %>
+    <%= f.select(:blockquote, options_for_select(@font_families, @font_set.blockquote), {}, { class: "form-control" } ) %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label "Number" %>
+    <%= f.select(:big_number, options_for_select(@font_families, @font_set.big_number), {}, { class: "form-control" } ) %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label "Number label" %>
+    <%= f.select(:big_number_label, options_for_select(@font_families, @font_set.big_number_label), {}, { class: "form-control" } ) %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label "Custom styles" %>
+    <%= f.text_area :sass, rows: 15, class: "form-control" %>
+  </div>
+  <div class="actions">
+    <p><%= f.submit "Save it!", class: "btn btn-primary" %> <%= link_to 'Back to project', project_path(@project), class: "btn btn-default" %></p>
+  </div>
+<% end %>

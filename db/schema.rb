@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140625184246) do
+ActiveRecord::Schema.define(version: 20140626003655) do
 
   create_table "authorizations", force: true do |t|
     t.integer  "user_id",       null: false
@@ -29,6 +29,24 @@ ActiveRecord::Schema.define(version: 20140625184246) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "font_sets", force: true do |t|
+    t.text     "sass"
+    t.integer  "project_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "name"
+    t.string   "main_headline"
+    t.string   "secondary_headline"
+    t.string   "body"
+    t.string   "byline"
+    t.string   "pullquote"
+    t.string   "blockquote"
+    t.string   "big_number"
+    t.string   "big_number_label"
+  end
+
+  add_index "font_sets", ["project_id"], name: "index_font_sets_on_project_id"
 
   create_table "projects", force: true do |t|
     t.string   "title"
