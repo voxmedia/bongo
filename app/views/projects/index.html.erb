@@ -15,6 +15,8 @@
         <td>
           <% if project.font_sets.size > 0 %>
             <%= link_to 'Launch!', project, class: "btn btn-primary" %>
+          <% else %>
+            <span class="btn btn-default" data-toggle="tooltip" data-placement="top" title="You have to add a font set before you can launch the project">Launch!</span>
           <% end %>
           <%= link_to 'Details', project_details_path(project), class: "btn btn-default" %>
           <%= link_to 'Edit', edit_project_path(project), class: "btn btn-default" %>

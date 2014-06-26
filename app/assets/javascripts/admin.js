@@ -13,3 +13,5 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap
+
+$('[data-toggle=tooltip]').tooltip();

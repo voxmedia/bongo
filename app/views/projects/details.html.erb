@@ -25,6 +25,9 @@
         <td>
           <% if @project.font_sets.size > 0 %>
             <%= link_to 'Launch!', @project, class: "btn btn-primary" %>
+          <% else %>
+          a href=""></a>
+            <span class="btn btn-default" data-toggle="tooltip" data-placement="top" title="You have to add a font set before you can launch the project">Launch!</span>
           <% end %>
           <%= link_to 'Edit project', edit_project_path(@project), class: "btn btn-primary"  %>
           <%= link_to "Edit kit", "https://typekit.com/kit_editor/kits/#{@project.kit_id}", class: "btn btn-primary" %>
