@@ -6,4 +6,4 @@
 <%= @font_set.compiled_css %>
 </pre>
 
-<%= link_to 'Back to project', project_details_path(@project), class: "btn btn-default" %>
+<%= link_to 'Go back', request.referer || project_details_path(@project), class: "btn btn-default" %>

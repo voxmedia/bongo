@@ -61,6 +61,6 @@
     <%= f.text_area :sass, rows: 15, class: "form-control" %>
   </div>
   <div class="actions">
-    <p><%= f.submit "Save it!", class: "btn btn-primary" %> <%= link_to 'Back to project', project_details_path(@project), class: "btn btn-default" %></p>
+    <p><%= f.submit "Save it!", class: "btn btn-primary" %> <%= link_to 'Go back', request.referer || project_details_path(@project), class: "btn btn-default" %></p>
   </div>
 <% end %>
