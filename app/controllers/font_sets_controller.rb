@@ -1,6 +1,6 @@
 class FontSetsController < ApplicationController
   before_action :set_font_set_and_project, only: [:show, :edit, :update, :destroy]
-
+  layout "admin"
   def show
 
   end

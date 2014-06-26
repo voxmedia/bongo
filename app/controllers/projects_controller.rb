@@ -1,5 +1,6 @@
 class ProjectsController < ApplicationController
   before_action :set_project, only: [:details, :show, :edit, :update, :destroy]
+  layout "admin"
 
   # GET /projects
   # GET /projects.json
@@ -15,7 +16,7 @@ class ProjectsController < ApplicationController
 
   def show
     respond_to do |format|
-      format.html { render layout: "project" }
+      format.html { render layout: "application" }
     end
   end
 

@@ -2,32 +2,15 @@
 <html>
 <head>
   <title>Bongo</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'styles', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'app', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   <%= yield :typekit %>
+  <%= yield :compiled_css %>
 </head>
 <body>
 
-<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-    <div class="container">
-      <div class="navbar-header">
-        <a class="navbar-brand" href="/">Bongo</a>
-      </div>
-      <div class="collapse navbar-collapse">
-        <ul class="nav navbar-nav">
-          <li><%= link_to "New project", new_project_path %></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
-<div class="container">
-  <% if notice %>
-    <p class="alert alert-info"><%= notice %></p>
-  <% end %>
-  <%= yield %>
-</div>
+<%= yield %>
 
 </body>
 </html>

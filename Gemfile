@@ -46,4 +46,5 @@ gem 'omniauth_service',         :git => 'git@github.com:voxmedia/omniauth_servic
 
 gem 'faraday'
 gem 'bootstrap-sass', '~> 3.1.1'
+gem 'compass-rails'
 
