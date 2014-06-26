@@ -40,10 +40,12 @@ BNG.App = (function($) {
   
   var init = function (options) {
     $.extend(opts, options);
+    var current = BNG.FontSets.current;
     opts.$next.on('click', goToNextFontSet);
     opts.$prev.on('click', goToPrevFontSet);
     opts.$current.text(BNG.FontSets.current + 1);
     opts.$total.text(BNG.FontSets.total);
+    opts.$edit.attr({ 'href' : BNG.FontSets.font_sets[current].edit_url });
   };
 
   return {
