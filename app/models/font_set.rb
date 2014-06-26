@@ -36,7 +36,7 @@ class FontSet < ActiveRecord::Base
   def compiled_css
     elements_css = ""
     ["main_headline", "secondary_headline", "byline", "body", "pullquote", "blockquote", "big_number", "big_number_label"].each do |e|
-      elements_css += ".#{e} { #{self.element_css(e)} } "
+      elements_css += ".bng-#{e.gsub('_','-')} { #{self.element_css(e)} } "
     end
     css = ".#{self.slug} { #{elements_css} #{self.sass} }"
     sass = begin
