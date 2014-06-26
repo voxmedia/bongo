@@ -15,8 +15,9 @@ class ProjectsController < ApplicationController
   end
 
   def show
+    font_set = @project.font_sets.first
     respond_to do |format|
-      format.html { render layout: "application" }
+      format.html { redirect_to show_font_set_url(@project.id, @project.slug, font_set.id, font_set.slug)}
     end
   end
 

@@ -56,7 +56,9 @@
     <% @project.font_sets.each do |font_set| %>
       <tr>
         <td><%= font_set.name %></td>
-        <td><%= link_to 'View', project_font_set_path(@project, font_set), class: "btn btn-default" %>
+        <td>
+        <%= link_to 'Launch!', show_font_set_path(@project.id, @project.slug, font_set.id, font_set.slug), class: "btn btn-primary" %>
+        <%= link_to 'View', font_set_details_path(@project, font_set), class: "btn btn-default" %>
         <%= link_to 'Edit', edit_project_font_set_path(@project, font_set), class: "btn btn-default"  %>
         <%= link_to 'Destroy', font_set, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger"  %></td>
       </tr>

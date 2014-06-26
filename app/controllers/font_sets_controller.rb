@@ -1,7 +1,13 @@
 class FontSetsController < ApplicationController
-  before_action :set_font_set_and_project, only: [:show, :edit, :update, :destroy]
+  before_action :set_font_set_and_project, only: [:show, :details, :edit, :update]
   layout "admin"
   def show
+    respond_to do |format|
+      format.html { render layout: "application" }
+    end
+  end
+
+  def details
 
   end
 
@@ -55,9 +61,11 @@ class FontSetsController < ApplicationController
   # DELETE /font_sets/1
   # DELETE /font_sets/1.json
   def destroy
+    @font_set = FontSet.find(params[:id])
+    project = @font_set.project
     @font_set.destroy
     respond_to do |format|
-      format.html { redirect_to font_sets_url, notice: 'Font set was successfully destroyed.' }
+      format.html { redirect_to project_details_url(project), notice: 'Font set was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

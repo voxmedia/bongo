@@ -8,7 +8,7 @@
   <%= yield :typekit %>
   <%= yield :compiled_css %>
 </head>
-<body>
+<body <%= yield :body_class %>>
 
 <%= yield %>
 
