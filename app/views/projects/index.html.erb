@@ -16,7 +16,7 @@
           <%= link_to 'Launch!', project, class: "btn btn-primary" %>
           <%= link_to 'Details', project_details_path(project), class: "btn btn-default" %>
           <%= link_to 'Edit', edit_project_path(project), class: "btn btn-default" %>
-          <%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+          <%= link_to 'Destroy', project, method: :delete, data: { confirm: "Oh god are you sure you want to delete #{project.title}?" }, class: "btn btn-danger" %>
         </td>
       </tr>
     <% end %>

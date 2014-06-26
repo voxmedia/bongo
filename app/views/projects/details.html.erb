@@ -34,7 +34,7 @@
           <%= link_to 'Launch!', @project, class: "btn btn-primary" %>
           <%= link_to 'Edit project', edit_project_path(@project), class: "btn btn-primary"  %>
           <%= link_to "Edit kit", "https://typekit.com/kit_editor/kits/#{@project.kit_id}", class: "btn btn-primary" %>
-          <%= link_to 'Destroy project', @project, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger"  %>
+          <%= link_to 'Destroy project', @project, method: :delete, data: { confirm: "Oh god are you sure you want to delete #{@project.title}?" }, class: "btn btn-danger"  %>
         </td>
       </tr>
   </tbody>
@@ -60,7 +60,7 @@
         <%= link_to 'Launch!', show_font_set_path(@project.id, @project.slug, font_set.id, font_set.slug), class: "btn btn-primary" %>
         <%= link_to 'View', font_set_details_path(@project, font_set), class: "btn btn-default" %>
         <%= link_to 'Edit', edit_project_font_set_path(@project, font_set), class: "btn btn-default"  %>
-        <%= link_to 'Destroy', font_set, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger"  %></td>
+        <%= link_to 'Destroy', font_set, method: :delete, data: { confirm: "Oh god are you sure you want to delete #{font_set.name}?" }, class: "btn btn-danger"  %></td>
       </tr>
     <% end %>
   </tbody>
