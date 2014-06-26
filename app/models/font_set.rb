@@ -1,6 +1,8 @@
 class FontSet < ActiveRecord::Base
   belongs_to :project
   before_save :update_slug
+  
+  validates :name, presence: true
 
   def element_font_name(element)
     begin

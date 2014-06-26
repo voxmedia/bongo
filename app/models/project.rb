@@ -2,6 +2,8 @@ class Project < ActiveRecord::Base
   has_many :font_sets
   before_save :update_slug
 
+  validates :title, :kit_id, :typekit_token, presence: true
+
   def kit
     typekit = Typekit.new(self.typekit_token)
     json = typekit.get_kit_info(self.kit_id)

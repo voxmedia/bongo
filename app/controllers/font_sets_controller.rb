@@ -1,6 +1,8 @@
 class FontSetsController < ApplicationController
   before_action :set_font_set_and_project, only: [:show, :details, :edit, :update]
+
   layout "admin"
+
   def show
     respond_to do |format|
       format.html { render layout: "application" }
@@ -30,6 +32,7 @@ class FontSetsController < ApplicationController
   def create
     @project = Project.find(params[:project_id])
     @font_set = @project.font_sets.build(font_set_params)
+    @font_families = get_font_family_array(@project)
 
     respond_to do |format|
       if @font_set.save
@@ -47,6 +50,7 @@ class FontSetsController < ApplicationController
   def update
     @project = Project.find(params[:project_id])
     @font_set = @project.font_sets.find(params[:id])
+    @font_families = get_font_family_array(@project)
     respond_to do |format|
       if @font_set.update(font_set_params)
         format.html { redirect_to project_details_url(@project), notice: 'Font set was successfully updated.' }
