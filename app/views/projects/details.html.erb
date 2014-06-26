@@ -26,11 +26,11 @@
           <% if @project.font_sets.size > 0 %>
             <%= link_to 'Launch!', @project, class: "btn btn-primary" %>
           <% else %>
-          a href=""></a>
             <span class="btn btn-default" data-toggle="tooltip" data-placement="top" title="You have to add a font set before you can launch the project">Launch!</span>
           <% end %>
-          <%= link_to 'Edit project', edit_project_path(@project), class: "btn btn-primary"  %>
-          <%= link_to "Edit kit", "https://typekit.com/kit_editor/kits/#{@project.kit_id}", class: "btn btn-primary" %>
+          <%= link_to 'Add a font set', new_project_font_set_path(@project.id), class: "btn btn-default"  %>
+          <%= link_to 'Edit project', edit_project_path(@project), class: "btn btn-default"  %>
+          <%= link_to "Edit Typekit", "https://typekit.com/kit_editor/kits/#{@project.kit_id}", class: "btn btn-default" %>
           <%= link_to 'Destroy project', @project, method: :delete, data: { confirm: "Oh god are you sure you want to delete #{@project.title}?" }, class: "btn btn-danger"  %>
         </td>
       </tr>
@@ -65,4 +65,4 @@
 <% else %>
 <p>This project doesn't have any font sets :(</p>
 <% end %>
-<p><%= link_to 'New font set', new_project_font_set_path(@project.id), class: "btn btn-primary"  %></p>
+<p><%= link_to 'Add a font set', new_project_font_set_path(@project.id), class: "btn btn-primary"  %></p>

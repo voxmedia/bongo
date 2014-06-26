@@ -4,6 +4,7 @@
   <thead>
     <tr>
       <th>Title</th>
+      <th>Font sets</th>
       <th></th>
     </tr>
   </thead>
@@ -12,13 +13,15 @@
     <% @projects.each do |project| %>
       <tr>
         <td><%= project.title %></td>
+        <td><%= project.font_sets.size %></td>
         <td>
           <% if project.font_sets.size > 0 %>
             <%= link_to 'Launch!', project, class: "btn btn-primary" %>
           <% else %>
             <span class="btn btn-default" data-toggle="tooltip" data-placement="top" title="You have to add a font set before you can launch the project">Launch!</span>
           <% end %>
-          <%= link_to 'Details', project_details_path(project), class: "btn btn-default" %>
+          <%= link_to 'Add a font set', new_project_font_set_path(project.id), class: "btn btn-default"  %>
+          <%= link_to 'View details', project_details_path(project), class: "btn btn-default" %>
           <%= link_to 'Edit', edit_project_path(project), class: "btn btn-default" %>
           <%= link_to 'Destroy', project, method: :delete, data: { confirm: "Oh god are you sure you want to delete #{project.title}?" }, class: "btn btn-danger" %>
         </td>
