@@ -1,11 +1,60 @@
 $m : '.m-toggle';
 
 #{$m} {
-  #{$m}__admin {
+  &.admin {
     position: fixed;
     color: white;
     top: 10px;
     left: 10px;
     z-index: 2;
+    &:hover {
+      color: #282828;
+      text-decoration: none;
+    }
+  }
+  a {
+    color: white;
+    display: block;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+  &.paginate {
+    position: fixed;
+    top: 50%;
+    margin-top: -35px;
+    color: white;
+    z-index: 2;
+    width: 50px;
+    height: 50px;
+    line-height: 54px;
+    text-align: center;
+    background-color: rgba(black, 0.5);
+    &.left {
+      left: 0;
+    }
+    &.right {
+      right: 0;
+    }
+    &:hover {
+      background-color: rgba(black, 0.75);
+      text-decoration: none;
+    }
+  }
+  span.sets,
+  a.info {
+    position: absolute;
+    line-height: 20px;
+    width: 100%;
+    left: 0;
+    right: 0;
+    font-size: 10px;
+    top: -21px;
+    height: 20px;
+    text-align: center;
+    background-color: rgba(black, 0.5);
+  }
+  a.info:hover {
+    background-color: rgba(black, 0.75);
   }
 }

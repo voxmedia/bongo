@@ -13,7 +13,17 @@
   class="<%= @font_set.slug %>"
 <% end %>
 
-<a href="#" class="m-toggle__admin icon-cog"></a>
+<a href="#" class="m-toggle admin icon-cog"></a>
+
+<toggle class="m-toggle paginate left">
+  <a href="#" class="icon-left-open"></a>
+  <span class="sets">1 / 6</span>
+</toggle>
+
+<toggle class="m-toggle paginate right">
+  <a href="#" class="icon-right-open"></a>
+  <a href="#" class="info">Info</a>
+</toggle>
 
 <!-- Body -->
 <div class="m-row">
