@@ -1,5 +1,9 @@
 class FontSetsController < ApplicationController
-  before_action :set_font_set_and_project, only: [:edit, :update, :destroy]
+  before_action :set_font_set_and_project, only: [:show, :edit, :update, :destroy]
+
+  def show
+
+  end
 
   # GET /font_sets/new
   def new
