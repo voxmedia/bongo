@@ -13,7 +13,6 @@
   <thead>
     <tr>
       <th>Kit Name</th>
-      <th>Families</th>
       <th></th>
     </tr>
   </thead>
@@ -21,15 +20,6 @@
   <tbody>
       <tr>
         <td><%= @typekit['kit']['name'] %></td>
-        <td>
-          <ul>
-            <%- @typekit['kit']['families'].each do |f| %>
-              <%- f['variations'].each do |v| %>
-                <li style='font-family:<%= f['css_stack'] %>;<%= font_variation_to_css(v) %>'><%= f['name'] %> (<%= font_variation_to_string(v) %>)</li>
-              <% end %>
-            <% end %>
-          </ul>
-        </td>
         <td>
           <% if @project.font_sets.size > 0 %>
             <%= link_to 'Launch!', @project, class: "btn btn-primary" %>
