@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140626003655) do
+ActiveRecord::Schema.define(version: 20140626021438) do
 
   create_table "authorizations", force: true do |t|
     t.integer  "user_id",       null: false
@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(version: 20140626003655) do
     t.string   "blockquote"
     t.string   "big_number"
     t.string   "big_number_label"
+    t.string   "slug"
   end
 
   add_index "font_sets", ["project_id"], name: "index_font_sets_on_project_id"
@@ -54,6 +55,7 @@ ActiveRecord::Schema.define(version: 20140626003655) do
     t.string   "typekit_token"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "slug"
   end
 
   create_table "users", force: true do |t|

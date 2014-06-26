@@ -1,5 +1,6 @@
 class FontSet < ActiveRecord::Base
   belongs_to :project
+  before_save :update_slug
 
   def element_font_name(element)
     begin
@@ -30,5 +31,11 @@ class FontSet < ActiveRecord::Base
     rescue
       ''
     end
+  end
+
+  protected
+
+  def update_slug
+    self.slug = self.name.parameterize
   end
 end
