@@ -1,5 +1,5 @@
 GIT
-  remote: git@github.com:voxmedia/omniauth_service.git
+  remote: git://github.com/voxmedia/omniauth_service.git
   revision: d5e022036a85da663e50ba6d1087e5cc7bb342db
   specs:
     omniauth_service (0.0.1)
