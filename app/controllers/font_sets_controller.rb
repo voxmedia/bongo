@@ -23,7 +23,7 @@ class FontSetsController < ApplicationController
 
     respond_to do |format|
       if @font_set.save
-        format.html { redirect_to @project, notice: 'Font set was successfully created.' }
+        format.html { redirect_to project_details_url(@project), notice: 'Font set was successfully created.' }
         format.json { render :show, status: :created, location: @font_set }
       else
         format.html { render :new }
@@ -39,7 +39,7 @@ class FontSetsController < ApplicationController
     @font_set = @project.font_sets.find(params[:id])
     respond_to do |format|
       if @font_set.update(font_set_params)
-        format.html { redirect_to @project, notice: 'Font set was successfully updated.' }
+        format.html { redirect_to project_details_url(@project), notice: 'Font set was successfully updated.' }
         format.json { render :show, status: :ok, location: @font_set }
       else
         format.html { render :edit }

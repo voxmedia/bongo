@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-  before_action :set_project, only: [:show, :edit, :update, :destroy]
+  before_action :set_project, only: [:details, :show, :edit, :update, :destroy]
 
   # GET /projects
   # GET /projects.json
@@ -7,9 +7,9 @@ class ProjectsController < ApplicationController
     @projects = Project.all
   end
 
-  # GET /projects/1
-  # GET /projects/1.json
-  def show
+  # GET /projects/1/details
+  # GET /projects/1/details.json
+  def details
     @typekit = @project.kit
   end
 
@@ -29,7 +29,7 @@ class ProjectsController < ApplicationController
 
     respond_to do |format|
       if @project.save
-        format.html { redirect_to @project, notice: 'Project was successfully created.' }
+        format.html { redirect_to project_details_url(@project), notice: 'Project was successfully created.' }
         format.json { render :show, status: :created, location: @project }
       else
         format.html { render :new }
@@ -43,7 +43,7 @@ class ProjectsController < ApplicationController
   def update
     respond_to do |format|
       if @project.update(project_params)
-        format.html { redirect_to @project, notice: 'Project was successfully updated.' }
+        format.html { redirect_to project_details_url(@project), notice: 'Project was successfully updated.' }
         format.json { render :show, status: :ok, location: @project }
       else
         format.html { render :edit }
