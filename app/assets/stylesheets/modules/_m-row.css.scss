@@ -114,6 +114,9 @@ $m : '.m-row';
           color: white;
           font-weight: bold;
           margin-bottom: 7px;
+          @media (min-width: $break_large) {
+            max-width: 750px;
+          }
         }
         span.byline {
           color: white;
@@ -147,6 +150,9 @@ $m : '.m-row';
     h1.small_lede {
       font-weight: bold;
       margin: 20px 0 10px;
+      @media (min-width: $break_medium) {
+        font-size: 2.75em;
+      }
     }
     blockquote {
       margin-bottom: 20px;
@@ -161,6 +167,9 @@ $m : '.m-row';
       font-size: 10em;
       font-weight: bold;
       color: $primary;
+      @media (min-width: $break_medium) {
+        font-size: 15em;
+      }
       i.label {
         color: #282828;
         display: block;
@@ -175,9 +184,12 @@ $m : '.m-row';
       position: relative;
       padding: 15% 10px;
       display: block;
-      font-size: 2em;
+      font-size: 2.5em;
       text-transform: uppercase;
       color: white;
+      @media (max-width: $break_small) {
+        font-size: 2em;
+      }
       @media (min-width: $break_medium) and (max-width: $break_large) {
         font-size: 1.25em;
       }
