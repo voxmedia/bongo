@@ -13,5 +13,16 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap
+//= require codemirror
+//= require css
 
 $('[data-toggle=tooltip]').tooltip();
+
+if ($('#font_set_sass')) {
+  var sassCodeMirror = CodeMirror.fromTextArea($('#font_set_sass')[0], {
+    tabSize: 2,
+    lineNumbers: true,
+    mode: 'text/x-scss',
+    theme: 'solarized dark'
+  });
+}
