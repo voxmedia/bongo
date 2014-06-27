@@ -34,7 +34,7 @@ BNG.App = (function($) {
     font_set = BNG.FontSets.font_sets[i];
     opts.$current.text(i + 1);
     opts.$edit.attr({ 'href' : font_set.edit_url });
-    opts.$body.attr({ 'class' : font_set.slug });
+    opts.$body.removeAttr('class').addClass('project-' + BNG.FontSets.slug).addClass('fontset-' + font_set.slug);
     $(opts.info_modal).remove();
     if (typeof window.history !== 'undefined') {
       window.history.replaceState(null, null, font_set.url);

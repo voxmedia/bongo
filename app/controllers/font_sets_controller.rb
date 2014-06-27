@@ -14,7 +14,7 @@ class FontSetsController < ApplicationController
                            info_url: font_set_info_url(fs) }
     end
     current = font_sets_array.find_index{ |f| f[:id] == @font_set.id }
-    font_sets = { current: current, total: @project.font_sets.size, font_sets: font_sets_array }
+    font_sets = { current: current, total: @project.font_sets.size, slug: @project.slug, font_sets: font_sets_array }
     @fs_json = font_sets.to_json
     respond_to do |format|
       format.html { render layout: "application" }
