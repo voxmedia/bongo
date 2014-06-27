@@ -43,16 +43,18 @@ $m : '.m-toggle';
   }
   span.sets,
   a.info {
+    font-family: sans-serif;
     position: absolute;
     line-height: 20px;
     width: 100%;
     left: 0;
     right: 0;
-    font-size: 10px;
+    font-size: 12px;
     top: -21px;
     height: 20px;
     text-align: center;
     background-color: rgba(black, 0.5);
+    text-shadow: 0 1px 0 rgba(0,0,0,0.5);
   }
   a.info:hover {
     background-color: rgba(black, 0.75);
