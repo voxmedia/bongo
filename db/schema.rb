@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140626021438) do
+ActiveRecord::Schema.define(version: 20140627170041) do
 
   create_table "authorizations", force: true do |t|
     t.integer  "user_id",       null: false
@@ -56,6 +56,14 @@ ActiveRecord::Schema.define(version: 20140626021438) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "slug"
+    t.string   "feature_image_url"
+    t.string   "background_url"
+    t.string   "lede_image_url"
+    t.string   "three_up_first_url"
+    t.string   "three_up_last_url"
+    t.string   "primary_color"
+    t.string   "secondary_color"
+    t.string   "logo_url"
   end
 
   create_table "users", force: true do |t|

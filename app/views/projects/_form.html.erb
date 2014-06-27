@@ -15,14 +15,60 @@
     <%= f.label :title %>
     <%= f.text_field :title, class: "form-control" %>
   </div>
-  <div class="form-group">
-    <%= f.label :kit_id %>
-    <%= f.text_field :kit_id, class: "form-control"  %>
+
+  <div class="panel panel-default">
+    <div class="panel-heading">Design &amp; Images</div>
+    <div class="panel-body">
+      <div class="form-group">
+        <%= f.label :primary_color %>
+        <%= f.text_field :primary_color, class: "form-control"  %>
+      </div>
+      <div class="form-group">
+        <%= f.label :secondary_color %>
+        <%= f.text_field :secondary_color, class: "form-control"  %>
+      </div>
+      <div class="form-group">
+        <%= f.label :logo_url %>
+        <%= f.text_field :logo_url, class: "form-control"  %>
+      </div>
+      <div class="form-group">
+        <%= f.label :feature_image_url %>
+        <%= f.text_field :feature_image_url, class: "form-control"  %>
+      </div>
+      <div class="form-group">
+        <%= f.label :background_url %>
+        <%= f.text_field :background_url, class: "form-control"  %>
+      </div>
+      <div class="form-group">
+        <%= f.label :lede_image_url %>
+        <%= f.text_field :lede_image_url, class: "form-control"  %>
+      </div>
+      <div class="form-group">
+        <%= f.label :three_up_first_url %>
+        <%= f.text_field :three_up_first_url, class: "form-control"  %>
+      </div>
+      <div class="form-group">
+        <%= f.label :three_up_last_url %>
+        <%= f.text_field :three_up_last_url, class: "form-control"  %>
+      </div>
+    </div>
   </div>
-  <div class="form-group">
-    <%= f.label :typekit_token %>
-    <%= f.text_field :typekit_token, class: "form-control"  %>
+
+  <div class="panel panel-default">
+    <div class="panel-heading">Typekit settings</div>
+    <div class="panel-body">
+      <div class="form-group">
+        <%= f.label :kit_id %>
+        <%= f.text_field :kit_id, class: "form-control"  %>
+      </div>
+      <div class="form-group">
+        <%= f.label :typekit_token %>
+        <%= f.text_field :typekit_token, class: "form-control"  %>
+      </div>
+    </div>
   </div>
+
+  
   <div class="form-group">
     <%= f.submit 'Save it!', class: "btn btn-primary" %>
     <%= link_to 'Go back', request.referer || projects_path, class: "btn btn-default" %>

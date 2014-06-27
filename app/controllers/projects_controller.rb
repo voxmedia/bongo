@@ -83,6 +83,6 @@ class ProjectsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def project_params
-      params.require(:project).permit(:title, :kit_id, :typekit_token)
+      params.require(:project).permit(:title, :kit_id, :typekit_token, :feature_image_url, :background_url, :lede_image_url, :three_up_first_url, :three_up_last_url, :logo_url, :primary_color, :secondary_color)
     end
 end
