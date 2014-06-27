@@ -21,6 +21,7 @@ Rails.application.routes.draw do
 
   get 'projects/:id/details' => 'projects#details', as: :project_details
   get ':project_id/:project_slug/:id/:slug' => 'font_sets#show', as: :show_font_set, constraints: {project_id: /\d+/, id: /\d+/}
+  get 'font_set/info/:id' => 'font_sets#info', as: :font_set_info
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase

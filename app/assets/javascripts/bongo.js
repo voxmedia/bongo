@@ -10,7 +10,7 @@ BNG.App = (function($) {
     $edit : $('.js-edit'),
     $body : $('body'),
     $info : $('.js-info'),
-    $info_modal : $('.js-font-info')
+    info_modal : '.js-font-info'
   };
 
   var goToNextFontSet = function () {
@@ -35,10 +35,26 @@ BNG.App = (function($) {
     opts.$current.text(i + 1);
     opts.$edit.attr({ 'href' : font_set.edit_url });
     opts.$body.attr({ 'class' : font_set.slug });
+    $(opts.info_modal).remove();
     if (typeof window.history !== 'undefined') {
       window.history.replaceState(null, null, font_set.url);
     }
   }
+
+  var loadFontInfo = function () {
+    var current, font_set, url;
+    if ($(opts.info_modal).length > 0) {
+      $(opts.info_modal).remove();
+    } else {
+      current = BNG.FontSets.current;
+      font_set = BNG.FontSets.font_sets[current];
+      url = font_set.info_url;
+      $.get(url, function (data) {
+        opts.$body.append(data);
+      });
+    }
+    return false;
+  };
   
   var init = function (options) {
     $.extend(opts, options);
@@ -48,10 +64,7 @@ BNG.App = (function($) {
     opts.$current.text(BNG.FontSets.current + 1);
     opts.$total.text(BNG.FontSets.total);
     opts.$edit.attr({ 'href' : BNG.FontSets.font_sets[current].edit_url });
-    opts.$info.on('click', function () {
-      opts.$info_modal.toggleClass('hidden');
-      return false;
-    });
+    opts.$info.on('click', loadFontInfo);
   };
 
   return {
