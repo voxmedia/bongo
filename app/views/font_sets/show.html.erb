@@ -5,29 +5,7 @@
 
 <% content_for :compiled_css do %>
 <style type="text/css">
-<%= @project.compiled_css.html_safe %>
-
-/* Primary Colors */
-a, a:link, a:active, a:visited {
-  color: #cc3c3c;
-}
-
-.m-row .m-row__inner blockquote {
-  color: #cc3c3c;
-}
-
-.m-row .m-row__inner span.number {
-  color: #cc3c3c;
-}
-
-/* Secondary Colors */
-.-overlay-color:before {
-  background: rgba(0, 143, 235, 0.35);
-}
-
-.m-row .m-row__inner q span {
-  color: #008feb;
-}
+  <%= @project.compiled_css.html_safe %>
 </style>
 <% end %>
 
@@ -39,7 +17,7 @@ a, a:link, a:active, a:visited {
 <% end %>
 
 <% content_for :body_class do %>
-  class="<%= @font_set.slug %>"
+  class="project-<%= @project.slug %> fontset-<%= @font_set.slug %>"
 <% end %>
 
 <a href="#" class="m-toggle admin icon-cog js-edit" title="Edit this font set"></a>

@@ -35,14 +35,17 @@ class FontSet < ActiveRecord::Base
     end
   end
 
-  def compiled_css
+  def uncompiled_sass
     elements_css = ""
     ["main_headline", "secondary_headline", "byline", "body", "pullquote", "blockquote", "big_number", "big_number_label"].each do |e|
       elements_css += ".bng-#{e.gsub('_','-')} { #{self.element_css(e)} } "
     end
-    css = ".#{self.slug} { #{elements_css} #{self.sass} }"
-    sass = begin
-      Sass::Engine.new(css, { syntax: :scss }).to_css
+    sass = ".fontset-#{self.slug} { #{elements_css} #{self.sass} }"
+  end
+
+  def compiled_css
+    begin
+      Sass::Engine.new(self.uncompiled_sass, { syntax: :scss }).to_css
     rescue Sass::SyntaxError
       ''
     end

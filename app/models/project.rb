@@ -12,11 +12,48 @@ class Project < ActiveRecord::Base
   end
 
   def compiled_css
-    css = ""
+    sass = ""
     self.font_sets.each do |f|
-      css += f.compiled_css
+      sass += f.uncompiled_sass
     end
-    css
+
+    if !self.primary_color.nil?
+      sass += <<-END
+      .project-#{self.slug} {
+        span.byline {
+          a, a:link, a:active, a:visited {
+            color: #{self.primary_color};
+          }
+        }
+        .m-row .m-row__inner blockquote {
+          color: #{self.primary_color};
+        }
+
+        .m-row .m-row__inner span.number {
+          color: #{self.primary_color};
+        }
+      }
+      END
+    end
+
+    if !self.secondary_color.nil?
+      sass += <<-END
+        .project-#{self.slug} {
+          .-overlay-color:before {
+            background: rgba(#{self.secondary_color}, 0.35);
+          }
+
+          .m-row .m-row__inner q span {
+            color: #{self.secondary_color};
+          }
+        }
+      END
+    end
+    begin
+      Sass::Engine.new(sass, { syntax: :scss }).to_css
+    rescue Sass::SyntaxError
+      ''
+    end
   end
 
   protected
