@@ -52,6 +52,7 @@ GEM
     compass-rails (1.1.7)
       compass (>= 0.12.2)
       sprockets (<= 2.11.0)
+    dalli (2.7.2)
     dotenv (0.11.1)
       dotenv-deployment (~> 0.0.2)
     dotenv-deployment (0.0.2)
@@ -79,6 +80,7 @@ GEM
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    memcachier (0.0.2)
     mime-types (1.25.1)
     minitest (5.3.5)
     multi_json (1.10.1)
@@ -168,11 +170,13 @@ DEPENDENCIES
   bootstrap-sass (~> 3.1.1)
   coffee-rails (~> 4.0.0)
   compass-rails
+  dalli
   dotenv-rails
   faraday
   foreman
   jbuilder (~> 2.0)
   jquery-rails
+  memcachier
   omniauth
   omniauth-google-oauth2
   omniauth_service!

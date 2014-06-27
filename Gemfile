@@ -50,3 +50,7 @@ gem 'compass-rails'
 
 gem 'rails_12factor', group: :production
 
+# http://i.imgur.com/oXWZb.jpg
+gem 'memcachier'
+gem 'dalli'
+
