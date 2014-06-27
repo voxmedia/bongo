@@ -16,10 +16,6 @@ class FontSetsController < ApplicationController
     end
   end
 
-  def details
-
-  end
-
   # GET /font_sets/new
   def new
     @project = Project.find(params[:project_id])

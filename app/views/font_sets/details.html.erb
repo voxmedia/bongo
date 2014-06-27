@@ -1,9 +1,0 @@
-<h1><%= @project.title %></h1>
-<h2><%= @font_set.name %></h2>
-
-<h3>Compiled CSS</h3>
-<pre>
-<%= @font_set.compiled_css %>
-</pre>
-
-<%= link_to 'Go back', request.referer || project_details_path(@project), class: "btn btn-default" %>
