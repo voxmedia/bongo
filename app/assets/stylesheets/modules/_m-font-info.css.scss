@@ -1,0 +1,35 @@
+$m : '.m-font-info';
+
+#{$m} {
+  @include transform(translateX(-50%) translateY(-50%));
+  font-family: sans-serif;
+  line-height: 1.5;
+  background-color: rgba(0,0,0,0.8);
+  border-radius: 5px;
+  color: #fff;
+  padding: 1rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  dt {
+    width: 50%;
+    float: left;
+    font-weight: 100;
+    text-align: right;
+    padding-right: 0.5rem;
+    font-size: 0.75rem;
+    line-height:2.4;
+  }
+  dd {
+    width: 50%;
+    float: right;
+    padding-left: 0.5rem;
+    font-size: 1.2rem;
+    line-height: 1.5;
+  }
+
+  &.hidden {
+    display: none;
+  }
+}
