@@ -26,7 +26,7 @@ heroku open
 
 ## Authors
 
-Ted Irvine, Josh Laincz, Guillermo Esteves, Jason Ormand, Curtis Schiewek
+Ted Irvine, Josh Laincz, Guillermo Esteves, Georgia Cowley, Jason Ormand, Curtis Schiewek
 
 ## Contribute
 
