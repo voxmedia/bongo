@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gem 'dotenv-rails', :groups => [:development, :test]
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.1.1'
+gem 'rails', '4.1.10'
 # Use sqlite3 as the database for Active Record in dev
 gem 'sqlite3', group: :development
 # Use postgres in prod
@@ -36,4 +36,3 @@ gem 'rails_12factor', group: :production
 # http://i.imgur.com/oXWZb.jpg
 gem 'memcachier'
 gem 'dalli'
-
