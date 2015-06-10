@@ -1,11 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  title: MyString
-  kit_id: MyString
-  typekit_token: MyString
+valid:
+  title: The Title
+  kit_id: asdf
+  typekit_token: asdflkjhasdflkjh
+  primary_color: blue
+  secondary_color: '#000000'
 
-two:
-  title: MyString
-  kit_id: MyString
-  typekit_token: MyString
+invalid:
+  title:
+  kit_id:
+  typekit_token:

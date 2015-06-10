@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150610165535) do
+ActiveRecord::Schema.define(version: 20150610210238) do
 
   create_table "font_sets", force: true do |t|
     t.text     "sass"
@@ -38,7 +38,6 @@ ActiveRecord::Schema.define(version: 20150610165535) do
     t.string   "typekit_token"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "slug"
     t.string   "feature_image_url"
     t.string   "background_url"
     t.string   "lede_image_url"

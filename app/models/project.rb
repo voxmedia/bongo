@@ -1,70 +1,67 @@
 class Project < ActiveRecord::Base
   has_many :font_sets
-  before_save :update_slug
   after_save :clear_cache
 
   validate :valid_kit
   validates :title, :kit_id, :typekit_token, presence: true
+  validates :primary_color, css_color: true, if: :primary_color
+  validates :secondary_color, css_color: true, if: :secondary_color
 
   def kit
-    json = Rails.cache.fetch("typekit:#{self.kit_id}") {
-      Typekit.new(self.typekit_token).get_kit_info(self.kit_id)
+    Rails.cache.fetch("typekit:#{kit_id}") {
+      Typekit.new(typekit_token).get_kit_info(kit_id)
     }
   end
 
+  def slug
+    title.parameterize
+  end
+
   def compiled_css
-    sass = ""
-    self.font_sets.each do |f|
-      sass += f.uncompiled_sass
-    end
+    sass = ''
+    sass += font_sets.map(&:uncompiled_sass).join
+    sass += primary_color_sass if primary_color
+    sass += secondary_color_sass if secondary_color
+    Sass::Engine.new(sass, syntax: :scss).to_css
+  end
 
-    if !self.primary_color.nil?
-      sass += <<-END
-      .project-#{self.slug} {
-        span.byline {
-          a, a:link, a:active, a:visited {
-            color: #{self.primary_color};
-          }
-        }
-        .m-row .m-row__inner blockquote {
-          color: #{self.primary_color};
-        }
+  private
 
-        .m-row .m-row__inner span.number {
-          color: #{self.primary_color};
+  def primary_color_sass
+    <<-END
+    .project-#{slug} {
+      span.byline {
+        a, a:link, a:active, a:visited {
+          color: #{primary_color};
         }
       }
-      END
-    end
+      .m-row .m-row__inner blockquote {
+        color: #{primary_color};
+      }
 
-    if !self.secondary_color.nil?
-      sass += <<-END
-        .project-#{self.slug} {
-          .-overlay-color:before {
-            background: rgba(#{self.secondary_color}, 0.35);
-          }
-
-          .m-row .m-row__inner q span {
-            color: #{self.secondary_color};
-          }
-        }
-      END
-    end
-    begin
-      Sass::Engine.new(sass, { syntax: :scss }).to_css
-    rescue Sass::SyntaxError
-      ''
-    end
+      .m-row .m-row__inner span.number {
+        color: #{primary_color};
+      }
+    }
+    END
   end
 
-  protected
+  def secondary_color_sass
+    <<-END
+      .project-#{slug} {
+        .-overlay-color:before {
+          background: rgba(#{secondary_color}, 0.35);
+        }
+
+        .m-row .m-row__inner q span {
+          color: #{secondary_color};
+        }
+      }
+    END
+  end
 
   def clear_cache
-    Rails.cache.delete("typekit:#{self.kit_id}")
-  end
-
-  def update_slug
-    self.slug = self.title.parameterize
+    Rails.cache.delete("typekit:#{kit_id}")
   end
 
   def valid_kit
