@@ -11,24 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140627170041) do
-
-  create_table "authorizations", force: true do |t|
-    t.integer  "user_id",       null: false
-    t.string   "provider",      null: false
-    t.string   "uid",           null: false
-    t.string   "link"
-    t.string   "name"
-    t.string   "nickname"
-    t.string   "image"
-    t.string   "token"
-    t.string   "secret"
-    t.boolean  "expires"
-    t.integer  "expires_at"
-    t.string   "refresh_token"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
+ActiveRecord::Schema.define(version: 20150610165535) do
 
   create_table "font_sets", force: true do |t|
     t.text     "sass"
@@ -64,13 +47,6 @@ ActiveRecord::Schema.define(version: 20140627170041) do
     t.string   "primary_color"
     t.string   "secondary_color"
     t.string   "logo_url"
-  end
-
-  create_table "users", force: true do |t|
-    t.string   "name"
-    t.string   "email"
-    t.datetime "created_at"
-    t.datetime "updated_at"
   end
 
 end
