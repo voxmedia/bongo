@@ -27,3 +27,14 @@ $m: '.m-project';
   padding: 0;
   list-style-type: none;
 }
+
+.navbar-brand {
+  @include transition(all ease-in-out 0.3s);
+  text-indent: -9999px;
+  background-image: image-url('logo.png');
+  width: 110px;
+  background-size: 100%;
+  &:hover {
+    opacity: 0.75;
+  }
+}
