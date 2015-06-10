@@ -19,7 +19,7 @@ TK
 
 ## Examples
 
-TK
+See a demo here: http://bongoapp.herokuapp.com/1/vax/1/quatro-caslon
 
 ## Install on Heroku
 
