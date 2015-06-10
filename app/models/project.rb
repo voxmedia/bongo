@@ -3,6 +3,7 @@ class Project < ActiveRecord::Base
   before_save :update_slug
   after_save :clear_cache
 
+  validate :valid_kit
   validates :title, :kit_id, :typekit_token, presence: true
 
   def kit
@@ -64,5 +65,12 @@ class Project < ActiveRecord::Base
 
   def update_slug
     self.slug = self.title.parameterize
+  end
+
+  def valid_kit
+    if kit['errors']
+      message = "There's a problem with your kit: #{kit['errors'].join(', ')}"
+      errors.add(:base, message)
+    end
   end
 end
