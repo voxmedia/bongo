@@ -27,6 +27,10 @@ group :development, :test do
   gem 'byebug'
 end
 
+group :test do
+  gem 'mocha'
+end
+
 group :production do
   gem 'pg'
   gem 'dalli'

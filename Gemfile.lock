@@ -81,8 +81,11 @@ GEM
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
     memcachier (0.0.2)
+    metaclass (0.0.4)
     mime-types (2.6.1)
     minitest (5.7.0)
+    mocha (1.1.0)
+      metaclass (~> 0.0.1)
     multi_json (1.11.0)
     multipart-post (2.0.0)
     pg (0.18.2)
@@ -160,6 +163,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   memcachier
+  mocha
   pg
   rails (= 4.1.10)
   rails_12factor
