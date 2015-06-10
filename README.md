@@ -1,4 +1,4 @@
-# Bongo
+![bongo](https://raw.githubusercontent.com/voxmedia/bongo/master/app/assets/images/logo.png)
 
 Bongo is a responsive tool that quickly enables people to make type pairings, color, branding and photo choices in a live, responsive environment without writing any code.
 
