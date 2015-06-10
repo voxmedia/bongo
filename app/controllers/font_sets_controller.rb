@@ -1,4 +1,5 @@
 class FontSetsController < ApplicationController
+  skip_before_filter :authenticate, only: [:show, :info]
   before_action :set_font_set_and_project, only: [:show, :details, :edit, :update]
 
   layout "admin"
