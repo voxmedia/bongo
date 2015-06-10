@@ -27,23 +27,6 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
 gem 'foreman',       group: :development
 
-# Authentication - https://github.com/voxmedia/omniauth_service
-gem 'omniauth'
-gem 'omniauth-google-oauth2'
-gem 'omniauth_service',         :git => 'git://github.com/voxmedia/omniauth_service.git'
-
-# Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
-
-# Use unicorn as the app server
-# gem 'unicorn'
-
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
-
-# Use debugger
-# gem 'debugger', group: [:development, :test]
-
 gem 'faraday'
 gem 'bootstrap-sass', '~> 3.1.1'
 gem 'compass-rails'
