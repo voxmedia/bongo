@@ -14,6 +14,16 @@ TK
 
 TK
 
+## Install on Heroku
+
+```
+bundle install --without production test
+heroku create
+git push heroku master
+heroku run rake db:migrate
+heroku open
+```
+
 ## Authors
 
 Ted Irvine, Josh Laincz, Guillermo Esteves, Jason Ormand, Curtis Schiewek
