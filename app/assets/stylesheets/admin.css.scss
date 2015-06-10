@@ -28,6 +28,7 @@ $m: '.m-project';
   list-style-type: none;
 }
 
+//boostrap overrides
 .navbar-brand {
   @include transition(all ease-in-out 0.3s);
   text-indent: -9999px;
@@ -37,4 +38,13 @@ $m: '.m-project';
   &:hover {
     opacity: 0.75;
   }
+}
+
+.form-control.color {
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  width: 34px;
+  height: 34px;
+  background: transparent;
 }
