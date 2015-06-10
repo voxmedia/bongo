@@ -167,7 +167,10 @@ $m : '.m-row';
       font-size: 10em;
       font-weight: bold;
       color: $primary;
-      @media (min-width: $break_medium) {
+      @media (max-width: $break_small) {
+        font-size: 15em;
+      }
+      @media (min-width: $break_large) {
         font-size: 15em;
       }
       i.label {
