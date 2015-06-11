@@ -37,7 +37,7 @@
   <div class="m-row__box half has_background_image left" <%= project_background_image_style(@project.background_url)%>>
     <div class="m-row__inner has_background_image">
       <a href="#" class="logo"><%= project_image_tag(@project.logo_url) %></a>
-      <div class="text big_headline">
+      <div class="text big_headline" contenteditable="true" >
         <h1 class="bng-main-headline big_headline" data-font-family="<%= @font_set.element_font_name('main_headline') %>">Bacon ipsum dolor amet shankle shoulder</h1>
         <span class="byline bng-byline" data-font-family="<%= @font_set.element_font_name('byline') %>">by <a href="#">John Doe</a> on January 24, 2014</span>
       </div>
@@ -46,7 +46,7 @@
   <div class="m-row__box half right">
     <div class="m-row__inner">
       <%= project_image_tag(@project.lede_image_url, { class: "small_lede" }) %>
-      <div class="text">
+      <div class="text" contenteditable="true" >
         <h1 class="small_lede bng-secondary-headline" data-font-family="<%= @font_set.element_font_name('secondary_headline') %>">Bacon ipsum dolor amet shankle shoulder biltong ball tip</h1>
         <span class="byline bng-byline" data-font-family="<%= @font_set.element_font_name('byline') %>">by <a href="#">John Doe</a> on January 24, 2014</span>
         <p class="bng-body" data-font-family="<%= @font_set.element_font_name('body') %>">Bacon ipsum dolor amet shankle shoulder biltong ball tip, ham ground round hamburger ribeye short ribs cupim alcatra ham hock brisket t-bone turkey. Short ribs turkey kielbasa, hamburger leberkas pork ham hock beef ribs beef fatback sirloin brisket flank shankle. Bacon ipsum dolor amet shankle shoulder biltong ball tip, ham ground round hamburger ribeye short ribs cupim alcatra ham hock brisket t-bone turkey.</p>
@@ -63,12 +63,12 @@
     </div>
   </div>
   <div class="m-row__box third mid">
-    <div class="m-row__inner three-up">
+    <div class="m-row__inner three-up" contenteditable="true" >
       <span class="number bng-big-number" data-font-family="<%= @font_set.element_font_name('big_number') %>">45<i class="label bng-big-number-label" data-font-family="<%= @font_set.element_font_name('big_number_label') %>">comments</i></span>
     </div>
   </div>
   <div class="m-row__box third last has_background_image" <%= project_background_image_style(@project.three_up_last_url) %>>
-    <div class="m-row__inner three-up">
+    <div class="m-row__inner three-up" contenteditable="true" >
       <q class="bng-pullquote" data-font-family="<%= @font_set.element_font_name('pullquote') %>">Bacon ipsum dolor amet shankle shoulder biltong ball tip, ham ground round <span>hamburger</span> ribeye short ribs cupim alcatra ham hock brisket t-bone turkey.</q>
     </div>
   </div>
@@ -77,7 +77,7 @@
 <div class="m-row">
   <div class="m-row__box has_background_image" <%= project_background_image_style(@project.feature_image_url) %>>
     <div class="m-row__inner feature">
-      <div class="text feature">
+      <div class="text feature" contenteditable="true" >
         <h1 class="feature bng-main-headline" data-font-family="<%= @font_set.element_font_name('main_headline') %>">Bacon ipsum dolor amet shankle shoulder</h1>
         <span class="byline bng-byline" data-font-family="<%= @font_set.element_font_name('byline') %>">by <a href="#">John Doe</a></span>
       </div>
