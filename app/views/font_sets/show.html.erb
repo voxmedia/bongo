@@ -2,11 +2,7 @@
   <%= google_webfonts_init(@font_set.config) %>
 <% end %>
 
-<% content_for :compiled_css do %>
-<style type="text/css">
-  <%= @project.compiled_css.html_safe %>
-</style>
-<% end %>
+<%= render 'font_css' %>
 
 <% content_for :bongo_js do %>
   <script>
@@ -20,6 +16,7 @@
 <% end %>
 
 <a href="#" class="m-toggle admin icon-cog js-edit" title="Edit this font set"></a>
+<a href="#" class="m-toggle edit icon-pencil js-ce" title="Edit Content"></a>
 
 <toggle class="m-toggle paginate left">
   <a href="#" class="icon-left-open js-prev"></a>
@@ -28,7 +25,8 @@
 
 <toggle class="m-toggle paginate right">
   <a href="#" class="icon-right-open js-next"></a>
-  <a href="#" class="info js-info">Info</a>
+  <a href="#" class="edit_project_toggle">Project</a>
+  <a href="#" class="edit_fontset_toggle">Fonts</a>
 </toggle>
 
 <!-- Body -->
@@ -36,7 +34,7 @@
   <div class="m-row__box half has_background_image left" <%= project_background_image_style(@project.background_url)%>>
     <div class="m-row__inner has_background_image">
       <a href="#" class="logo"><%= project_image_tag(@project.logo_url) %></a>
-      <div class="text big_headline" contenteditable="true" >
+      <div class="text big_headline" contenteditable="false" >
         <h1 class="bng-main-headline big_headline" data-font-family="<%= @font_set.element_font_name('main_headline') %>">Bacon ipsum dolor amet shankle shoulder</h1>
         <span class="byline bng-byline" data-font-family="<%= @font_set.element_font_name('byline') %>">by <a href="#">John Doe</a> on January 24, 2014</span>
       </div>
@@ -45,7 +43,7 @@
   <div class="m-row__box half right">
     <div class="m-row__inner">
       <%= project_image_tag(@project.lede_image_url, { class: "small_lede" }) %>
-      <div class="text" contenteditable="true" >
+      <div class="text" contenteditable="false" >
         <h1 class="small_lede bng-secondary-headline" data-font-family="<%= @font_set.element_font_name('secondary_headline') %>">Bacon ipsum dolor amet shankle shoulder biltong ball tip</h1>
         <span class="byline bng-byline" data-font-family="<%= @font_set.element_font_name('byline') %>">by <a href="#">John Doe</a> on January 24, 2014</span>
         <p class="bng-body" data-font-family="<%= @font_set.element_font_name('body') %>">Bacon ipsum dolor amet shankle shoulder biltong ball tip, ham ground round hamburger ribeye short ribs cupim alcatra ham hock brisket t-bone turkey. Short ribs turkey kielbasa, hamburger leberkas pork ham hock beef ribs beef fatback sirloin brisket flank shankle. Bacon ipsum dolor amet shankle shoulder biltong ball tip, ham ground round hamburger ribeye short ribs cupim alcatra ham hock brisket t-bone turkey.</p>
@@ -62,12 +60,12 @@
     </div>
   </div>
   <div class="m-row__box third mid">
-    <div class="m-row__inner three-up" contenteditable="true" >
+    <div class="m-row__inner three-up" contenteditable="false" >
       <span class="number bng-big-number" data-font-family="<%= @font_set.element_font_name('big_number') %>">45<i class="label bng-big-number-label" data-font-family="<%= @font_set.element_font_name('big_number_label') %>">comments</i></span>
     </div>
   </div>
   <div class="m-row__box third last has_background_image" <%= project_background_image_style(@project.three_up_last_url) %>>
-    <div class="m-row__inner three-up" contenteditable="true" >
+    <div class="m-row__inner three-up" contenteditable="false" >
       <q class="bng-pullquote" data-font-family="<%= @font_set.element_font_name('pullquote') %>">Bacon ipsum dolor amet shankle shoulder biltong ball tip, ham ground round <span>hamburger</span> ribeye short ribs cupim alcatra ham hock brisket t-bone turkey.</q>
     </div>
   </div>
@@ -76,10 +74,21 @@
 <div class="m-row">
   <div class="m-row__box has_background_image" <%= project_background_image_style(@project.feature_image_url) %>>
     <div class="m-row__inner feature">
-      <div class="text feature" contenteditable="true" >
+      <div class="text feature" contenteditable="false" >
         <h1 class="feature bng-main-headline" data-font-family="<%= @font_set.element_font_name('main_headline') %>">Bacon ipsum dolor amet shankle shoulder</h1>
         <span class="byline bng-byline" data-font-family="<%= @font_set.element_font_name('byline') %>">by <a href="#">John Doe</a></span>
       </div>
     </div>
   </div>
+</div>
+
+<div class="modal-forms">
+
+  <div class="m-edit-modal fontset-forms">
+    <%= render 'edit_font' %>
+  </div>
+  <div class="m-edit-modal project-form">
+    <%= render 'edit_project' %>
+  </div>
+
 </div>
