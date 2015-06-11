@@ -12,6 +12,32 @@ $m : '.m-toggle';
       text-decoration: none;
     }
   }
+  &.edit {
+    position: fixed;
+    color: white;
+    top: 35px;
+    left: 10px;
+    z-index: 2;
+    &:hover {
+      color: #282828;
+      text-decoration: none;
+    }
+    &.active:hover:after {
+      background: #282828;
+    }
+    &.active:after {
+      @include transform(rotate(45deg));
+      content: "";
+      position: absolute;
+      width: 19px;
+      height: 2px;
+      background: white;
+      top: 7px;
+      left: 2px;
+      right: 0;
+      bottom: 0;
+    }
+  }
   a {
     color: white;
     display: block;

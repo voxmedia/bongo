@@ -8,9 +8,27 @@ BNG.App = (function($) {
     $current : $('.js-current'),
     $total : $('.js-total'),
     $edit : $('.js-edit'),
+    $ce : $('.js-ce'),
     $body : $('body'),
     $info : $('.js-info'),
     info_modal : '.js-font-info'
+  };
+
+  var contentEditableOn = function () {
+    $('.m-row').contents().find("[contenteditable]").each(function() {
+      opts.$ce.toggleClass('active');
+      var value = $(this).attr('contenteditable');
+
+      if (value == 'false') {
+        $(this).attr('contenteditable','true');
+        opts.$ce.attr('title', 'Disable Editable Content')
+      }
+      else {
+        $(this).attr('contenteditable','false');
+        opts.$ce.attr('title', 'Enable Editable Content')
+      }
+    });
+    event.preventDefault();
   };
 
   var goToNextFontSet = function () {
@@ -61,6 +79,7 @@ BNG.App = (function($) {
     var current = BNG.FontSets.current;
     opts.$next.on('click', goToNextFontSet);
     opts.$prev.on('click', goToPrevFontSet);
+    opts.$ce.on('click', contentEditableOn);
     opts.$current.text(BNG.FontSets.current + 1);
     opts.$total.text(BNG.FontSets.total);
     opts.$edit.attr({ 'href' : BNG.FontSets.font_sets[current].edit_url });
