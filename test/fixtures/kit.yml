@@ -1,187 +1,186 @@
 ---
 kit:
-  kit:
-    id: xxxxxxx
-    name: Bongo
-    analytics: false
-    domains:
-    - localhost
-    families:
-    - id: brwr
-      name: FF Meta Web Pro
-      slug: ff-meta-web-pro
-      css_names:
-      - ff-meta-web-pro
-      css_stack: '"ff-meta-web-pro",sans-serif'
-      subset: default
-      variations:
-      - n4
-      - i4
-      - n7
-      - i7
-    - id: dxzd
-      name: Quatro Slab
-      slug: quatro-slab
-      css_names:
-      - quatro-slab
-      css_stack: '"quatro-slab",serif'
-      subset: default
-      variations:
-      - n4
-      - i4
-      - n5
-      - i5
-      - n7
-      - i7
-      - n9
-    - id: fbft
-      name: Franklin Gothic URW
-      slug: franklin-gothic-urw
-      css_names:
-      - franklin-gothic-urw
-      css_stack: '"franklin-gothic-urw",sans-serif'
-      subset: default
-      variations:
-      - n4
-      - i4
-      - n5
-      - i5
-      - n7
-      - i7
-    - id: ftnk
-      name: Futura PT
-      slug: futura-pt
-      css_names:
-      - futura-pt
-      css_stack: '"futura-pt",sans-serif'
-      subset: default
-      variations:
-      - n3
-      - n7
-    - id: gjst
-      name: Abril Text
-      slug: abril-text
-      css_names:
-      - abril-text
-      css_stack: '"abril-text",sans-serif'
-      subset: default
-      variations:
-      - n4
-      - i4
-      - n6
-      - i6
-      - n8
-    - id: hmqz
-      name: Adobe Caslon Pro
-      slug: adobe-caslon-pro
-      css_names:
-      - adobe-caslon-pro
-      css_stack: '"adobe-caslon-pro",serif'
-      subset: default
-      variations:
-      - n4
-      - i4
-      - n6
-      - i6
-    - id: hptl
-      name: Quatro
-      slug: quatro
-      css_names:
-      - quatro
-      css_stack: '"quatro",sans-serif'
-      subset: default
-      variations:
-      - n9
-    - id: nljb
-      name: Minion Pro
-      slug: minion-pro
-      css_names:
-      - minion-pro
-      css_stack: '"minion-pro",serif'
-      subset: default
-      variations:
-      - n4
-      - i4
-      - n6
-      - i6
-    - id: ssws
-      name: JAF Bernino Sans Compressed
-      slug: jaf-bernino-sans-compressed
-      css_names:
-      - jaf-bernino-sans-comp
-      css_stack: '"jaf-bernino-sans-comp",sans-serif'
-      subset: default
-      variations:
-      - n7
-    - id: syzk
-      name: Seravek Web
-      slug: seravek-web
-      css_names:
-      - seravek-web
-      css_stack: '"seravek-web",sans-serif'
-      subset: default
-      variations:
-      - i6
-      - n7
-    - id: txmp
-      name: FF DIN Web Condensed
-      slug: ff-din-web-condensed
-      css_names:
-      - ff-din-web-condensed
-      css_stack: '"ff-din-web-condensed",sans-serif'
-      subset: default
-      variations:
-      - n6
-      - i6
-    - id: vcsm
-      name: Proxima Nova
-      slug: proxima-nova
-      css_names:
-      - proxima-nova
-      css_stack: '"proxima-nova",sans-serif'
-      subset: default
-      variations:
-      - n1
-      - n4
-      - n8
-    - id: vybr
-      name: Calluna
-      slug: calluna
-      css_names:
-      - calluna
-      css_stack: '"calluna",serif'
-      subset: default
-      variations:
-      - n4
-      - i4
-      - n6
-      - i6
-      - n7
-      - i7
-      - n9
-    - id: wgzc
-      name: Calluna Sans
-      slug: calluna-sans
-      css_names:
-      - calluna-sans
-      css_stack: '"calluna-sans",sans-serif'
-      subset: default
-      variations:
-      - n3
-      - n4
-      - i4
-      - i6
-      - n7
-      - i7
-    - id: yvxn
-      name: Brandon Grotesque
-      slug: brandon-grotesque
-      css_names:
-      - brandon-grotesque
-      css_stack: '"brandon-grotesque",sans-serif'
-      subset: default
-      variations:
-      - n4
-      - i4
-      - i5
-      - n9
+  id: xxxxxxx
+  name: Bongo
+  analytics: false
+  domains:
+  - localhost
+  families:
+  - id: brwr
+    name: FF Meta Web Pro
+    slug: ff-meta-web-pro
+    css_names:
+    - ff-meta-web-pro
+    css_stack: '"ff-meta-web-pro",sans-serif'
+    subset: default
+    variations:
+    - n4
+    - i4
+    - n7
+    - i7
+  - id: dxzd
+    name: Quatro Slab
+    slug: quatro-slab
+    css_names:
+    - quatro-slab
+    css_stack: '"quatro-slab",serif'
+    subset: default
+    variations:
+    - n4
+    - i4
+    - n5
+    - i5
+    - n7
+    - i7
+    - n9
+  - id: fbft
+    name: Franklin Gothic URW
+    slug: franklin-gothic-urw
+    css_names:
+    - franklin-gothic-urw
+    css_stack: '"franklin-gothic-urw",sans-serif'
+    subset: default
+    variations:
+    - n4
+    - i4
+    - n5
+    - i5
+    - n7
+    - i7
+  - id: ftnk
+    name: Futura PT
+    slug: futura-pt
+    css_names:
+    - futura-pt
+    css_stack: '"futura-pt",sans-serif'
+    subset: default
+    variations:
+    - n3
+    - n7
+  - id: gjst
+    name: Abril Text
+    slug: abril-text
+    css_names:
+    - abril-text
+    css_stack: '"abril-text",sans-serif'
+    subset: default
+    variations:
+    - n4
+    - i4
+    - n6
+    - i6
+    - n8
+  - id: hmqz
+    name: Adobe Caslon Pro
+    slug: adobe-caslon-pro
+    css_names:
+    - adobe-caslon-pro
+    css_stack: '"adobe-caslon-pro",serif'
+    subset: default
+    variations:
+    - n4
+    - i4
+    - n6
+    - i6
+  - id: hptl
+    name: Quatro
+    slug: quatro
+    css_names:
+    - quatro
+    css_stack: '"quatro",sans-serif'
+    subset: default
+    variations:
+    - n9
+  - id: nljb
+    name: Minion Pro
+    slug: minion-pro
+    css_names:
+    - minion-pro
+    css_stack: '"minion-pro",serif'
+    subset: default
+    variations:
+    - n4
+    - i4
+    - n6
+    - i6
+  - id: ssws
+    name: JAF Bernino Sans Compressed
+    slug: jaf-bernino-sans-compressed
+    css_names:
+    - jaf-bernino-sans-comp
+    css_stack: '"jaf-bernino-sans-comp",sans-serif'
+    subset: default
+    variations:
+    - n7
+  - id: syzk
+    name: Seravek Web
+    slug: seravek-web
+    css_names:
+    - seravek-web
+    css_stack: '"seravek-web",sans-serif'
+    subset: default
+    variations:
+    - i6
+    - n7
+  - id: txmp
+    name: FF DIN Web Condensed
+    slug: ff-din-web-condensed
+    css_names:
+    - ff-din-web-condensed
+    css_stack: '"ff-din-web-condensed",sans-serif'
+    subset: default
+    variations:
+    - n6
+    - i6
+  - id: vcsm
+    name: Proxima Nova
+    slug: proxima-nova
+    css_names:
+    - proxima-nova
+    css_stack: '"proxima-nova",sans-serif'
+    subset: default
+    variations:
+    - n1
+    - n4
+    - n8
+  - id: vybr
+    name: Calluna
+    slug: calluna
+    css_names:
+    - calluna
+    css_stack: '"calluna",serif'
+    subset: default
+    variations:
+    - n4
+    - i4
+    - n6
+    - i6
+    - n7
+    - i7
+    - n9
+  - id: wgzc
+    name: Calluna Sans
+    slug: calluna-sans
+    css_names:
+    - calluna-sans
+    css_stack: '"calluna-sans",sans-serif'
+    subset: default
+    variations:
+    - n3
+    - n4
+    - i4
+    - i6
+    - n7
+    - i7
+  - id: yvxn
+    name: Brandon Grotesque
+    slug: brandon-grotesque
+    css_names:
+    - brandon-grotesque
+    css_stack: '"brandon-grotesque",sans-serif'
+    subset: default
+    variations:
+    - n4
+    - i4
+    - i5
+    - n9

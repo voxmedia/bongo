@@ -1,9 +1,17 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  sass: MyText
-  project_id: 
+valid:
+  project: valid
+  name: Font Set Title
+  main_headline: brwr:n4
+  secondary_headline: brwr:n4
+  body: brwr:n4
+  byline: brwr:n4
+  pullquote: brwr:n4
+  blockquote: brwr:n4
+  big_number: brwr:n4
+  big_number_label: brwr:n4
+  sass: 'body { color: blue; }'
 
-two:
-  sass: MyText
-  project_id: 
+invalid:
+  project: valid

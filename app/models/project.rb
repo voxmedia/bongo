@@ -6,6 +6,7 @@ class Project < ActiveRecord::Base
   validates :title, :kit_id, :typekit_token, presence: true
   validates :primary_color, css_color: true, if: :primary_color
   validates :secondary_color, css_color: true, if: :secondary_color
+  # TODO uniqueness validator on title
 
   def kit
     Rails.cache.fetch("typekit:#{kit_id}") {

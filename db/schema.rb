@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150610210238) do
+ActiveRecord::Schema.define(version: 20150610230052) do
 
   create_table "font_sets", force: true do |t|
     t.text     "sass"
@@ -27,7 +27,6 @@ ActiveRecord::Schema.define(version: 20150610210238) do
     t.string   "blockquote"
     t.string   "big_number"
     t.string   "big_number_label"
-    t.string   "slug"
   end
 
   add_index "font_sets", ["project_id"], name: "index_font_sets_on_project_id"
