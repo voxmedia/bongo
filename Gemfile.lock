@@ -76,6 +76,8 @@ GEM
     ffi (1.9.8)
     foreman (0.78.0)
       thor (~> 0.19.1)
+    google-webfonts-rails (0.0.4)
+      activesupport (> 3.2.0, < 5.0)
     hike (1.2.3)
     i18n (0.7.0)
     jbuilder (2.2.16)
@@ -169,6 +171,7 @@ DEPENDENCIES
   dotenv-rails
   faraday
   foreman
+  google-webfonts-rails
   jbuilder (~> 2.0)
   jquery-rails
   memcachier

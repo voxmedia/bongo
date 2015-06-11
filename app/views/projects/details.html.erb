@@ -1,18 +1,8 @@
-<% content_for :typekit do %>
-  <script type="text/javascript" src="//use.typekit.net/<%= @project.kit_id %>.js"></script>
-  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
-<% end %>
-
-<% if !@typekit['kit']['domains'].include?(request.host) %>
-    <p class="alert alert-danger"><strong>Warning!</strong> Please make sure <strong><%= request.host %></strong> is in your list of allowed domains in your <%= link_to "kit settings", "https://typekit.com/kit_editor/kits/#{@project.kit_id}" %>, or your fonts won't be visible in your project.</p>
-<% end %>
-
 <h1><%= @project.title %></h1>
 
 <table class="table m-project__table">
   <thead>
     <tr>
-      <th>Kit Name</th>
       <th>Families</th>
       <th></th>
     </tr>
@@ -20,10 +10,9 @@
 
   <tbody>
       <tr>
-        <td><%= @typekit['kit']['name'] %></td>
-        <td><%= @typekit['kit']['families'].size %></td>
+        <td><%= @project.kit.size %></td>
         <td>
-          <%= link_to "Edit Typekit", "https://typekit.com/kit_editor/kits/#{@project.kit_id}", class: "btn btn-default" %>
+          <%= link_to "Edit Collection", @project.collection_url, class: "btn btn-default" %>
           <%= link_to 'Project settings', edit_project_path(@project), class: "btn btn-default"  %>
         </td>
       </tr>
