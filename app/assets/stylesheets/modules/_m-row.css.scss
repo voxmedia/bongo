@@ -15,7 +15,7 @@ $m : '.m-row';
         float: none;
       }
       &.has_background_image {
-        @extend .-overlay-color;
+        @extend .-overlay;
       }
       @media (min-width: $break_medium) {
         &.left {
@@ -108,7 +108,7 @@ $m : '.m-row';
         }
       }
       &.feature {
-        @extend .-overlay-color;
+        @extend .-overlay;
         h1 {
           position: relative;
           text-transform: uppercase;
@@ -205,16 +205,8 @@ $m : '.m-row';
 
   //contenteditable styles
   .ce_active & {
-    .m-row__box.half.left,
-    .m-row__inner.three-up,
-    .has_background_image,
-    .m-row .m-row__box.third.last {
-      &:before {
-        background: rgba(#bbb, 0.9) !important;
-      }
-    }
-    .-overlay-color:before {
-      background: rgba(#bbb, 0.9);
+    .-overlay:before {
+      background: rgba(#bbb, 0.9) !important;
     }
   }
 }
