@@ -20,7 +20,6 @@ class FontSet < ActiveRecord::Base
     font_family = "font-family:#{family(element)['family']};"
     font_weight = "font-weight:#{weight(element)};"
     font_style = "font-style:#{style(element)};"
-    v = variation(element)
     font_family + font_weight + font_style
   end
 
