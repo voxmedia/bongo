@@ -1,7 +1,7 @@
 var BNG = BNG || {};
 
 BNG.App = (function($) {
-  
+
   var opts = {
     $next : $('.js-next'),
     $prev : $('.js-prev'),
@@ -10,8 +10,8 @@ BNG.App = (function($) {
     $edit : $('.js-edit'),
     $ce : $('.js-ce'),
     $body : $('body'),
-    $info : $('.js-info'),
-    info_modal : '.js-font-info'
+    $edit_fontset_toggle: $('.edit_fontset_toggle'),
+    $edit_project_toggle: $('.edit_project_toggle')
   };
 
   var contentEditableOn = function () {
@@ -59,21 +59,19 @@ BNG.App = (function($) {
     }
   }
 
-  var loadFontInfo = function () {
-    var current, font_set, url;
-    if ($(opts.info_modal).length > 0) {
-      $(opts.info_modal).remove();
-    } else {
-      current = BNG.FontSets.current;
-      font_set = BNG.FontSets.font_sets[current];
-      url = font_set.info_url;
-      $.get(url, function (data) {
-        opts.$body.append(data);
-      });
-    }
-    return false;
+
+  var editFontset = function() {
+    console.log('edit font set')
+    $('.fontset-forms').toggle();
+    $('.project-form').hide();
   };
-  
+
+  var editProject = function() {
+    console.log('edit project')
+    $('.project-form').toggle();
+    $('.fontset-forms').hide();
+  };
+
   var init = function (options) {
     $.extend(opts, options);
     var current = BNG.FontSets.current;
@@ -83,7 +81,9 @@ BNG.App = (function($) {
     opts.$current.text(BNG.FontSets.current + 1);
     opts.$total.text(BNG.FontSets.total);
     opts.$edit.attr({ 'href' : BNG.FontSets.font_sets[current].edit_url });
-    opts.$info.on('click', loadFontInfo);
+
+    opts.$edit_fontset_toggle.on('click', editFontset);
+    opts.$edit_project_toggle.on('click', editProject);
   };
 
   return {

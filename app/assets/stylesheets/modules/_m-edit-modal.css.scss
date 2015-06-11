@@ -1,4 +1,4 @@
-$m : '.m-font-info';
+$m : '.m-edit-modal';
 
 #{$m} {
   @include transform(translateX(-50%) translateY(-50%));
@@ -7,29 +7,45 @@ $m : '.m-font-info';
   background-color: rgba(0,0,0,0.8);
   border-radius: 5px;
   color: #fff;
-  padding: 1rem;
   position: fixed;
   top: 50%;
   left: 50%;
+
+  display: none;
+  min-width: 400px;
+
+
+  dl {
+    padding: 1rem;
+  }
 
   dt {
     width: 50%;
     float: left;
     font-weight: 100;
-    text-align: right;
     padding-right: 0.5rem;
     font-size: 0.75rem;
     line-height:2.4;
   }
+
   dd {
-    width: 50%;
-    float: right;
     padding-left: 0.5rem;
     font-size: 1.2rem;
     line-height: 1.5;
   }
 
-  &.hidden {
-    display: none;
+
+}
+
+#{$m}-header {
+  padding: 1rem;
+  background-color: rgba(0,0,0,0.7);
+  display: flex;
+  border-radius: 5px;
+
+  .right {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
   }
 }

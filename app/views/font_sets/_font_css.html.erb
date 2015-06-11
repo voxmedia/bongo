@@ -1,0 +1,5 @@
+<% content_for :compiled_css do %>
+  <style type='text/css'>
+    <%= @project.compiled_css.html_safe %>
+  </style>
+<% end %>

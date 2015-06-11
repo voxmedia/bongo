@@ -3,11 +3,7 @@
   <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 <% end %>
 
-<% content_for :compiled_css do %>
-<style type="text/css">
-  <%= @project.compiled_css.html_safe %>
-</style>
-<% end %>
+<%= render 'font_css' %>
 
 <% content_for :bongo_js do %>
   <script>
@@ -30,7 +26,8 @@
 
 <toggle class="m-toggle paginate right">
   <a href="#" class="icon-right-open js-next"></a>
-  <a href="#" class="info js-info">Info</a>
+  <a href="#" class="edit_project_toggle">Project</a>
+  <a href="#" class="edit_fontset_toggle">Fonts</a>
 </toggle>
 
 <!-- Body -->
@@ -84,4 +81,16 @@
       </div>
     </div>
   </div>
+</div>
+
+<div class="modal-forms">
+
+  <div class="m-edit-modal fontset-forms">
+    <%= render 'edit_font' %>
+  </div>
+  <div class="m-edit-modal project-form">
+    <%= render 'edit_project' %>
+  </div>
+
+
 </div>

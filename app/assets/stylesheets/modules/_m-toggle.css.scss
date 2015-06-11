@@ -67,8 +67,10 @@ $m : '.m-toggle';
       text-decoration: none;
     }
   }
+
   span.sets,
-  a.info {
+  a.edit_project_toggle,
+  a.edit_fontset_toggle {
     font-family: sans-serif;
     position: absolute;
     line-height: 20px;
@@ -81,8 +83,15 @@ $m : '.m-toggle';
     text-align: center;
     background-color: rgba(black, 0.5);
     text-shadow: 0 1px 0 rgba(0,0,0,0.5);
+
+    &:hover {
+      background-color: rgba(black, 0.75);
+    }
   }
-  a.info:hover {
-    background-color: rgba(black, 0.75);
+
+  a.edit_project_toggle {
+    top: -42px;
   }
+
+
 }
