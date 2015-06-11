@@ -35,7 +35,8 @@ ConnectableInterface = (function($){
     var value = $(source).val();
 
     // Going from a selector to a text field we need to take the name of the option
-    if(source.tagName === "SELECT" && (receiver.tagName !== "SELECT" &&
+    if(typeof(source) !== "undefined" &&
+       source.tagName === "SELECT" && (receiver.tagName !== "SELECT" &&
                                        receiver.tagName !== "CHECKBOX" &&
                                        receiver.tagName !== "RADIO")){
       return $(source).find('[value="' + value + '"]').text();

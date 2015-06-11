@@ -18,6 +18,14 @@
 
 $('[data-toggle=tooltip]').tooltip();
 
+$("#project_primary_color_hex").on('keydown', function(){
+  $("#project_primary_color").val($(this).val());
+});
+
+$("#project_secondary_color_hex").on('keydown', function(){
+  $("#project_secondary_color").val($(this).val());
+});
+
 if ($('#font_set_sass')) {
   var sassCodeMirror = CodeMirror.fromTextArea($('#font_set_sass')[0], {
     tabSize: 2,
