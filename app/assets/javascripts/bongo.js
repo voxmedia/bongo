@@ -60,46 +60,54 @@ BNG.App = (function($) {
     }
   }
 
-  var submitForm = function(e) {
-
-    e.preventDefault();
-
-    var $submit = $(e.target);
-    var $form = $submit.closest('form');
-
-
-
-    window.daform = $form;
-
-    console.log($submit, $form);
-
-    // $form.submit(function() {
-    //     var valuesToSubmit = $(this).serialize();
-    //     $.ajax({
-    //         type: "POST",
-    //         url: $(this).attr('action'), //sumbits it to the given url of the form
-    //         data: valuesToSubmit,
-    //         dataType: "JSON" // you want a difference between normal and ajax-calls, and json is standard
-    //     }).success(function(json){
-    //         console.log("success", json);
-    //     });
-    //     return false; // prevents normal behaviour
-    // });
-
+  var submitForms = function() {
+    $.each( $('form'), function(i, form) {
+      serializeAndSubmit(form);
+    });
   }
 
+  var serializeAndSubmit = function(form) {
+    var valuesToSubmit = $(form).serialize();
+    var csrf = $('meta[name="csrf-token"]').attr('content');
+
+    $.ajax({
+      beforeSend: function(xhr) {
+        xhr.setRequestHeader('X-CSRF-Token', csrf)
+      },
+      type: "POST",
+      data: { _method:'PUT' },
+      url: $(form).attr('action'),
+    }).success(function(json){
+        console.log("success", json);
+    }).error(function(err){
+      console.log("error", err);
+    })
+
+    return false;
+  }
 
   var editFontset = function() {
-    console.log('edit font set')
     $('.fontset-forms').toggle();
     $('.project-form').hide();
   };
 
   var editProject = function() {
-    console.log('edit project')
     $('.project-form').toggle();
     $('.fontset-forms').hide();
   };
+
+  var attachGenericFormEvents = function() {
+    // global event, emit this anywhere, all forms present will save.
+    $(document).on("formChange", function(form){
+      submitForms();
+    });
+
+    // incase we want the "save" button functionality
+    $("input[type=submit]").on('click', function(e){
+      e.preventDefault();
+      $(document).trigger("formChange");
+    });
+  }
 
   var init = function (options) {
     $.extend(opts, options);
@@ -114,7 +122,9 @@ BNG.App = (function($) {
     opts.$edit_fontset_toggle.on('click', editFontset);
     opts.$edit_project_toggle.on('click', editProject);
 
-    $("input[type=submit]").on('click', submitForm);
+
+
+    attachGenericFormEvents();
   };
 
   return {
