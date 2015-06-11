@@ -1,8 +1,5 @@
 class Project < ActiveRecord::Base
   has_many :font_sets
-  after_save :clear_cache
-
-  validate :valid_kit
   validates :title, presence: true
   validates :primary_color, css_color: true, if: :primary_color
   validates :secondary_color, css_color: true, if: :secondary_color
@@ -66,16 +63,5 @@ class Project < ActiveRecord::Base
         }
       }
     END
-  end
-
-  def clear_cache
-    Rails.cache.delete("google_fonts")
-  end
-
-  def valid_kit
-    # if kit['errors']
-    #   message = "There's a problem with your kit: #{kit['errors'].join(', ')}"
-    #   errors.add(:base, message)
-    # end
   end
 end
