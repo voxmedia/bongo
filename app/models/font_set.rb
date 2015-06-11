@@ -5,7 +5,6 @@ class FontSet < ActiveRecord::Base
   validate :valid_sass
   validates :name, :main_headline, :secondary_headline, :body, :byline,
             :pullquote, :blockquote, :big_number, :big_number_label, presence: true
-  # TODO uniqueness validator on name
 
   def slug
     name.parameterize if name
