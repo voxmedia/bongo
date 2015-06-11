@@ -128,11 +128,6 @@ class FontSetsController < ApplicationController
 
     def get_font_family_array(project)
       families = []
-      # project.kit['kit']['families'].each do |f|
-      #   f['variations'].each do |v|
-      #     families << ["#{f['name']} (#{view_context.font_variation_to_string(v)})", "#{f['id']}:#{v}"]
-      #   end
-      # end
       project.kit.each do |f|
         f['variants'].each do |v|
           families << ["#{f['family']} (#{view_context.font_variation_to_string(v)})", "#{f['family']}:#{v}"]
