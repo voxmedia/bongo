@@ -24,6 +24,8 @@ class FontSetsController < ApplicationController
 
   def info
     @font_set = FontSet.find(params[:id])
+    @project = @font_set.project
+    @font_families = get_font_family_array(@project)
     respond_to do |format|
       format.html { render layout: false}
     end

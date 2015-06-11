@@ -1,20 +1,10 @@
 <%= form_for [@project, @font_set] do |f| %>
-  <% if @font_set.errors.any? %>
-    <div class="alert alert-danger">
-      <p>Your font set couldn't be saved :(</p>
 
-      <ul>
-      <% @font_set.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
+  <%= f.hidden_field("return_to", value:"view") %>
+
+  <%= f.fields_for :project do |color_form| %>
+    <%= render partial: "projects/colors", locals: {f:color_form} %>
   <% end %>
-
-  <div class="form-group">
-    <%= f.label :name %>
-    <%= f.text_field :name, class: "form-control" %>
-  </div>
 
   <div class="form-group">
     <%= f.label "Headline (primary)" %>
@@ -56,10 +46,6 @@
     <%= f.select(:big_number_label, options_for_select(@font_families, @font_set.big_number_label), {}, { class: "form-control" } ) %>
   </div>
 
-  <div class="form-group">
-    <%= f.label "Custom styles" %>
-    <%= f.text_area :sass, rows: 15 %>
-  </div>
   <div class="actions">
     <p><%= f.submit "Save it!", class: "btn btn-primary" %> <%= link_to 'Go back', request.referer || project_details_path(@project), class: "btn btn-default" %></p>
   </div>
