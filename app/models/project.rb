@@ -9,7 +9,7 @@ class Project < ActiveRecord::Base
   def kit
     # Loading kit from file as the internet sucks
     all = GoogleFonts.new.all['items']
-    if collection_url
+    if collection_url && collection_url['/Collection:']
       collection = collection_url.split('/Collection:').last.split('|')
       collection = collection.map { |name| name.gsub('+', ' ') }
       @kit = all.select { |font| collection.include?(font['family']) }
