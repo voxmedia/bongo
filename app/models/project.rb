@@ -3,14 +3,22 @@ class Project < ActiveRecord::Base
   after_save :clear_cache
 
   validate :valid_kit
-  validates :title, :kit_id, :typekit_token, presence: true
+  validates :title, presence: true
   validates :primary_color, css_color: true, if: :primary_color
   validates :secondary_color, css_color: true, if: :secondary_color
 
+  # TODO Add photo overlay color attribute
+
   def kit
-    Rails.cache.fetch("typekit:#{kit_id}") {
-      Typekit.new(typekit_token).get_kit_info(kit_id)
-    }
+    # Loading kit from file as the internet sucks
+    all = JSON.parse(File.read('lib/assets/google_fonts.json'))['items']
+    if collection_url
+      collection = collection_url.split('/Collection:').last.split('|')
+      collection = collection.map { |name| name.gsub('+', ' ') }
+      @kit = all.select { |font| collection.include?(font['family']) }
+    else
+      @kit = all
+    end
   end
 
   def slug
@@ -61,13 +69,13 @@ class Project < ActiveRecord::Base
   end
 
   def clear_cache
-    Rails.cache.delete("typekit:#{kit_id}")
+    Rails.cache.delete("google_fonts")
   end
 
   def valid_kit
-    if kit['errors']
-      message = "There's a problem with your kit: #{kit['errors'].join(', ')}"
-      errors.add(:base, message)
-    end
+    # if kit['errors']
+    #   message = "There's a problem with your kit: #{kit['errors'].join(', ')}"
+    #   errors.add(:base, message)
+    # end
   end
 end

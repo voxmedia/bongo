@@ -12,12 +12,12 @@ class FontSet < ActiveRecord::Base
 
   def element_font_name(element)
     return unless ELEMENTS.include?(element)
-    family(element)['name']
+    family(element)['family']
   end
 
   def element_css(element)
     return unless ELEMENTS.include?(element)
-    font_family = "font-family:#{family(element)['css_stack']};"
+    font_family = "font-family:#{family(element)['family']};"
     font_weight = "font-weight:#{weight(element)};"
     font_style = "font-style:#{style(element)};"
     font_family + font_weight + font_style
@@ -34,6 +34,10 @@ class FontSet < ActiveRecord::Base
     Sass::Engine.new(uncompiled_sass, syntax: :scss).to_css
   end
 
+  def config
+    { google: project.kit.map { |f| f['family'] } }
+  end
+
   private
 
   def family_id(element)
@@ -41,7 +45,7 @@ class FontSet < ActiveRecord::Base
   end
 
   def family(element)
-    project.kit['kit']['families'].find { |u| u['id'] == family_id(element) }
+    project.kit.find { |u| u['family'] == family_id(element) }
   end
 
   def variation(element)
@@ -49,12 +53,13 @@ class FontSet < ActiveRecord::Base
   end
 
   def style(element)
-    styles = { 'n' => 'normal', 'i' => 'italic', 'o' => 'oblique' }
-    styles[variation(element).first]
+    v = variation(element)
+    ['', 'regular'].include?(v[/\D*/]) ? 'normal' : v[/\D*/]
   end
 
   def weight(element)
-    variation(element).last.to_i * 100
+    v = variation(element)
+    v[/\d*/].empty? ? '400' : v[/\d*/]
   end
 
   def valid_sass

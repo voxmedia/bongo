@@ -12,6 +12,7 @@ gem 'bootstrap-sass', '~> 3.3.4'
 gem 'bootswatch-rails'
 gem 'compass-rails', '~> 2.0.4'
 gem 'color'
+gem 'google-webfonts-rails'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
