@@ -10,13 +10,13 @@ $m : '.m-edit-modal';
   position: fixed;
   top: 50%;
   left: 50%;
-
   display: none;
-  min-width: 400px;
+  max-width: 750px;
+  width: 75%;
 
 
   dl {
-    padding: 1rem;
+    padding: 1rem 2rem;
   }
 
   dt {
@@ -34,6 +34,75 @@ $m : '.m-edit-modal';
     line-height: 1.5;
   }
 
+  .title {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  &__inner {
+    padding: 1rem 2rem;
+  }
+
+  .panel-heading,
+  .form-group label {
+    display: block;
+  }
+  .panel-heading {
+    margin-top: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  .form-group {
+    margin-bottom: 8px;
+  }
+
+
+  .panel_wrap {
+    display: table;
+    width: 100%;
+    .panel.left,
+    .panel.right {
+      display: table-cell;
+      width: 50%;
+    }
+    .panel.left {
+      padding-right: 10%;
+    }
+    .panel.right {
+      padding-left: 10%;
+    }
+  }
+  .form-control {
+    width: 100%;
+    padding: 5px;
+    color: #ccc;
+    background: transparent;
+    border: 1px solid white;
+    &.hex {
+      width: calc(100% - 40px);
+      display: inline;
+    }
+    &[type = "color"] {
+      display: inline;
+      vertical-align: middle;
+      border: none;
+      height: 35px;
+      width: 35px;
+      padding: 0;
+    }
+  }
+  .btn {
+    cursor: pointer;
+    margin-top: 25px;
+    background: turquoise;
+    padding: 5px 15px;
+    color: white;
+    border-radius: 2px;
+    border: none;
+    &:hover {
+      background: darken(turquoise, 10%);
+    }
+  }
 
 }
 
