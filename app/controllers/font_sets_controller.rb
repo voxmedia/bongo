@@ -17,6 +17,7 @@ class FontSetsController < ApplicationController
     current = font_sets_array.find_index{ |f| f[:id] == @font_set.id }
     font_sets = { current: current, total: @project.font_sets.size, slug: @project.slug, font_sets: font_sets_array }
     @fs_json = font_sets.to_json
+
     respond_to do |format|
       format.html { render layout: "application" }
     end
@@ -107,6 +108,7 @@ class FontSetsController < ApplicationController
     def set_font_set_and_project
       @project = Project.find(params[:project_id])
       @font_set = @project.font_sets.find(params[:id])
+      @font_families = get_font_family_array(@project)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

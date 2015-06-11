@@ -59,6 +59,34 @@ BNG.App = (function($) {
     }
   }
 
+  var submitForm = function(e) {
+
+    e.preventDefault();
+
+    var $submit = $(e.target);
+    var $form = $submit.closest('form');
+
+
+
+    window.daform = $form;
+
+    console.log($submit, $form);
+
+    // $form.submit(function() {
+    //     var valuesToSubmit = $(this).serialize();
+    //     $.ajax({
+    //         type: "POST",
+    //         url: $(this).attr('action'), //sumbits it to the given url of the form
+    //         data: valuesToSubmit,
+    //         dataType: "JSON" // you want a difference between normal and ajax-calls, and json is standard
+    //     }).success(function(json){
+    //         console.log("success", json);
+    //     });
+    //     return false; // prevents normal behaviour
+    // });
+
+  }
+
 
   var editFontset = function() {
     console.log('edit font set')
@@ -84,6 +112,8 @@ BNG.App = (function($) {
 
     opts.$edit_fontset_toggle.on('click', editFontset);
     opts.$edit_project_toggle.on('click', editProject);
+
+    $("input[type=submit]").on('click', submitForm);
   };
 
   return {
