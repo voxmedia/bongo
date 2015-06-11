@@ -21,13 +21,13 @@
     <div class="panel-body">
       <div class="form-group">
         <%= f.label :primary_color %>
-        <%= f.text_field :primary_color, class: "form-control color", type: "color", data: {"connectable-to" => 'primary_color'} %>
-        <%= f.text_field :primary_color, class: "form-control", data: {"connectable-to" => 'primary_color'} %>
+        <%= f.text_field :primary_color, class: "form-control color", type: "color" %>
+        <%= f.text_field :primary_color, class: "form-control", data: {"connectable-to" => 'project_primary_color'} %>
       </div>
       <div class="form-group">
         <%= f.label :secondary_color %>
-        <%= f.text_field :secondary_color, class: "form-control color", type: "color", data: {"connectable-to" => 'secondary_color'}  %>
-        <%= f.text_field :secondary_color, class: "form-control", data: {"connectable-to" => 'secondary_color'}  %>
+        <%= f.text_field :secondary_color, class: "form-control color", type: "color" %>
+        <%= f.text_field :secondary_color, class: "form-control", data: {"connectable-to" => 'project_secondary_color'} %>
       </div>
       <div class="form-group">
         <%= f.label :logo_url %>
