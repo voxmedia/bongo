@@ -43,6 +43,26 @@ $m : '.m-edit-modal';
     padding: 1rem 2rem;
   }
 
+  .icon-plus-circle {
+    margin-top: 5px;
+    font-size: 0.8em;
+    &:before {
+      margin-right: 5px;
+    }
+    &:hover:before {
+      color: white;
+    }
+  }
+
+  .close-modal,
+  .icon-plus-circle  {
+    color: white;
+    &:hover {
+      color: turquoise;
+      text-decoration: none;
+    }
+  }
+
   .panel-heading,
   .form-group label {
     display: block;

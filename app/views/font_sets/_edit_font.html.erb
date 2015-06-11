@@ -2,20 +2,16 @@
 
   <div class="m-edit-modal-header" >
 
-    <div class="left">Font sets</div>
+    <div class="left title">Font sets</div>
 
     <div class="right">
-      <%= link_to 'Add a font set', new_project_font_set_path(@project.id), class: "btn btn-primary"  %>
+      <a href="#" class="close-modal icon-cancel"></a>
     </div>
 
   </div>
 
-  <div class="left">
+  <div class="left m-edit-modal__inner">
     <%= render 'form' %>
-  </div>
-
-  <div class="right">
-    tktktkt
   </div>
 
 </div>

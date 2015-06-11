@@ -11,7 +11,8 @@ BNG.App = (function($) {
     $ce : $('.js-ce'),
     $body : $('body'),
     $edit_fontset_toggle: $('.edit_fontset_toggle'),
-    $edit_project_toggle: $('.edit_project_toggle')
+    $edit_project_toggle: $('.edit_project_toggle'),
+    $closeModal: $('.close-modal')
   };
 
   var contentEditableOn = function () {
@@ -97,6 +98,11 @@ BNG.App = (function($) {
     $('.fontset-forms').hide();
   };
 
+  var closeModal = function() {
+    $('.project-form').hide();
+    $('.fontset-forms').hide();
+  };
+
   var attachGenericFormEvents = function() {
     // global event, emit this anywhere, all forms present will save.
     $(document).on("formChange", function(form){
@@ -121,6 +127,8 @@ BNG.App = (function($) {
     opts.$edit.attr({ 'href' : BNG.FontSets.font_sets[current].edit_url });
     opts.$edit_fontset_toggle.on('click', editFontset);
     opts.$edit_project_toggle.on('click', editProject);
+    opts.$closeModal.on('click', closeModal);
+
     attachGenericFormEvents();
   };
 
