@@ -12,7 +12,7 @@ class FontSet < ActiveRecord::Base
 
   def element_font_name(element)
     return unless ELEMENTS.include?(element)
-    family(element)['name']
+    family(element)['family']
   end
 
   def element_css(element)
