@@ -15,10 +15,16 @@
  *= require solarized
  */
 
+
+@import "bootstrap-sprockets";
 @import "bootstrap";
-@import "bootstrap/theme";
+
+@import "bootswatch/flatly/variables";
+@import "bootswatch/flatly/bootswatch";
 
 body { padding-top: 70px; }
+
+
 
 $m: '.m-project';
 

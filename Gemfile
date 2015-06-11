@@ -9,6 +9,7 @@ gem 'jquery-rails'
 gem 'jbuilder', '~> 2.0'
 gem 'faraday'
 gem 'bootstrap-sass', '~> 3.3.4'
+gem 'bootswatch-rails'
 gem 'compass-rails', '~> 2.0.4'
 gem 'color'
 
