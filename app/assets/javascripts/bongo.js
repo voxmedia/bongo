@@ -61,12 +61,13 @@ BNG.App = (function($) {
   }
 
   var submitForms = function() {
-    $.each( $('form'), function(i, form) {
+    $.each($('form'), function(i, form) {
       serializeAndSubmit(form);
     });
   }
 
   var serializeAndSubmit = function(form) {
+
     var valuesToSubmit = $(form).serialize();
     var csrf = $('meta[name="csrf-token"]').attr('content');
 
@@ -75,10 +76,10 @@ BNG.App = (function($) {
         xhr.setRequestHeader('X-CSRF-Token', csrf)
       },
       type: "POST",
-      data: { _method:'PUT' },
+      data:  valuesToSubmit,
       url: $(form).attr('action'),
     }).success(function(json){
-        console.log("success", json);
+      console.log("success", json);
     }).error(function(err){
       console.log("error", err);
     })
@@ -118,12 +119,8 @@ BNG.App = (function($) {
     opts.$current.text(BNG.FontSets.current + 1);
     opts.$total.text(BNG.FontSets.total);
     opts.$edit.attr({ 'href' : BNG.FontSets.font_sets[current].edit_url });
-
     opts.$edit_fontset_toggle.on('click', editFontset);
     opts.$edit_project_toggle.on('click', editProject);
-
-
-
     attachGenericFormEvents();
   };
 
