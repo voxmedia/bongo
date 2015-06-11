@@ -11,7 +11,7 @@ class Project < ActiveRecord::Base
 
   def kit
     # Loading kit from file as the internet sucks
-    all = JSON.parse(File.read('lib/assets/google_fonts.json'))['items']
+    all = GoogleFonts.new.all['items']
     if collection_url
       collection = collection_url.split('/Collection:').last.split('|')
       collection = collection.map { |name| name.gsub('+', ' ') }

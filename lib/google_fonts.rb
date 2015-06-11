@@ -10,9 +10,10 @@ class GoogleFonts
   def all
     response = @conn.get('/webfonts/v1/webfonts') do |request|
       request.params[:key] = @key
+      request.options.timeout = 0.01
     end
     JSON.parse(response.body)
   rescue Faraday::Error::ClientError
-    nil
+    JSON.parse(File.read('lib/assets/google_fonts.json'))
   end
 end
