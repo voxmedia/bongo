@@ -21,7 +21,7 @@ class ProjectsController < ApplicationController
         format.html { redirect_to project_details_url(@project), notice: 'You need to add font sets to this project before you can launch it!' }
       else
         font_set = @project.font_sets.first
-        format.html { redirect_to show_font_set_url(@project.id, @project.slug, font_set.id, font_set.slug)}
+        format.html { redirect_to project_font_set_url(@project.id, font_set.id) }
       end
     end
   end
@@ -78,7 +78,7 @@ class ProjectsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_project
-      @project = Project.find(params[:id])
+      @project = Project.find(params[:id] || params[:project_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

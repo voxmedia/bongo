@@ -10,9 +10,9 @@ class FontSetsController < ApplicationController
       font_sets_array << { id: fs.id,
                            slug: fs.slug,
                            name: fs.name,
-                           url: show_font_set_url(@project.id, @project.slug, fs.id, fs.slug),
-                           edit_url: edit_project_font_set_url(@project, fs),
-                           info_url: font_set_info_url(fs) }
+                           url: project_font_set_path(@project.id, fs.id),
+                           edit_url: edit_project_font_set_path(@project, fs),
+                           info_url: project_font_set_info_path(@project, fs) }
     end
     current = font_sets_array.find_index{ |f| f[:id] == @font_set.id }
     font_sets = { current: current, total: @project.font_sets.size, slug: @project.slug, font_sets: font_sets_array }
