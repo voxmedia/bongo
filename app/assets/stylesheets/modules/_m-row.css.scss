@@ -202,4 +202,19 @@ $m : '.m-row';
       }
     }
   }
+
+  //contenteditable styles
+  .ce_active & {
+    .m-row__box.half.left,
+    .m-row__inner.three-up,
+    .has_background_image,
+    .m-row .m-row__box.third.last {
+      &:before {
+        background: rgba(#bbb, 0.9) !important;
+      }
+    }
+    .-overlay-color:before {
+      background: rgba(#bbb, 0.9);
+    }
+  }
 }

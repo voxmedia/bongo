@@ -17,6 +17,7 @@ BNG.App = (function($) {
   var contentEditableOn = function () {
     $('.m-row').contents().find("[contenteditable]").each(function() {
       opts.$ce.toggleClass('active');
+      opts.$body.toggleClass('ce_active');
       var value = $(this).attr('contenteditable');
 
       if (value == 'false') {
