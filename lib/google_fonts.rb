@@ -13,7 +13,7 @@ class GoogleFonts
       request.options.timeout = 0.01
     end
     JSON.parse(response.body)
-  rescue Faraday::Error::ClientError
+  rescue
     JSON.parse(File.read('lib/assets/google_fonts.json'))
   end
 end
