@@ -47,31 +47,32 @@ class FontSetsController < ApplicationController
   # POST /font_sets
   # POST /font_sets.json
   def create
-   if params[:project_id]
-      @project = Project.find(params[:project_id])
-      @font_set = @project.font_sets.build(font_set_params)
-      @font_families = get_font_family_array(@project)
+    @project = Project.find(params[:project_id])
+    @font_set = @project.font_sets.build(font_set_params)
+    @font_families = get_font_family_array(@project)
 
-      respond_to do |format|
-        if @font_set.save
-          format.html { redirect_to project_details_url(@project), notice: 'Font set was successfully created.' }
-          format.json { render :show, status: :created, location: @font_set }
-        else
-          format.html { render :new }
-          format.json { render json: @font_set.errors, status: :unprocessable_entity }
-        end
+    respond_to do |format|
+      if @font_set.save
+        format.html { redirect_to project_details_url(@project), notice: 'Font set was successfully created.' }
+        format.json { render :show, status: :created, location: @font_set }
+      else
+        format.html { render :new }
+        format.json { render json: @font_set.errors, status: :unprocessable_entity }
       end
-    else
-      @project = Project.find(params[:font_set][:project_id])
-      @font_set = @project.font_sets.build
-      @font_set.name = (@project.font_sets.count + 1).to_s
-      @font_families = get_font_family_array(@project)
-      FontSet::ELEMENTS.each do |element|
-        @font_set.send("#{element}=", @font_families.first.last)
-      end
-      @font_set.save!
-      redirect_to project_font_set_path(project_id: @project.id, id: @font_set.id)
     end
+  end
+
+  def create_with_defaults
+    @project = Project.find(params[:project_id])
+    @font_set = @project.font_sets.build
+    @font_set.name = (@project.font_sets.count + 1).to_s
+    @font_families = get_font_family_array(@project)
+    FontSet::ELEMENTS.each do |element|
+      @font_set.send("#{element}=", @font_families.first.last)
+    end
+    @font_set.save!
+    byebug
+    redirect_to project_font_set_path(project_id: @project.id, id: @font_set.id)
   end
 
   # PATCH/PUT /font_sets/1

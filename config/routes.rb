@@ -3,6 +3,7 @@ Rails.application.routes.draw do
     get :details
     resources :font_sets do
       get :info
+      get :create_with_defaults, on: :collection
     end
   end
 

@@ -21,7 +21,7 @@
 <toggle class="m-toggle paginate left">
   <a href="#" class="icon-left-open js-prev"></a>
   <span class="sets"><span class="js-current">1</span>/<span class="js-total"></span></span>
-  <span class="sets new"><%= link_to 'Set', new_project_font_set_path(@project.id), class: "icon-plus-circle"  %></span>
+  <span class="sets new"><%= link_to 'Set', create_with_defaults_project_font_sets_path(@project.id), class: "icon-plus-circle"  %></span>
 </toggle>
 
 <toggle class="m-toggle paginate right">
