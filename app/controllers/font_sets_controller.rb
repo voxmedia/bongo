@@ -71,7 +71,6 @@ class FontSetsController < ApplicationController
       @font_set.send("#{element}=", @font_families.first.last)
     end
     @font_set.save!
-    byebug
     redirect_to project_font_set_path(project_id: @project.id, id: @font_set.id)
   end
 
