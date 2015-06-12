@@ -67,7 +67,11 @@ class FontSetsController < ApplicationController
     @font_set = @project.font_sets.build
     @font_set.name = (@project.font_sets.count + 1).to_s
     @font_families = get_font_family_array(@project)
-    FontSet::ELEMENTS.each do |element|
+    # https://www.google.com/fonts#ChoosePlace:select/Collection:Open+Sans|Martel|Archivo+Black
+    @font_set.body = @font_set.byline = 'Open Sans:regular'
+    @font_set.main_headline = 'Martel:900'
+    @font_set.pullquote = 'Open Sans:300'
+    (FontSet::ELEMENTS - %w(body byline main_headline pullquote)).each do |element|
       @font_set.send("#{element}=", @font_families.first.last)
     end
     @font_set.save!
