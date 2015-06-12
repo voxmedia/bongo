@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150611175135) do
+ActiveRecord::Schema.define(version: 20150611224559) do
 
   create_table "font_sets", force: true do |t|
     t.text     "sass"
@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(version: 20150611175135) do
     t.string   "secondary_color"
     t.string   "logo_url"
     t.string   "collection_url"
+    t.string   "overlay_color"
   end
 
 end

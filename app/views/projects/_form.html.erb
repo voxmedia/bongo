@@ -48,6 +48,11 @@
     <div class="panel panel-default right">
       <div class="panel-heading">Colors</div>
       <div class="form-group">
+        <%= f.label :overlay_color %>
+        <%= f.text_field :overlay_color, class: "form-control color", type: "color" %>
+        <%= f.text_field :overlay_color, id:"project_secondary_color_hex", class: "form-control hex", data: {"connectable-to" => 'project_overlay_color'}  %>
+      </div>
+      <div class="form-group">
         <%= f.label :primary_color %>
         <%= f.text_field :primary_color, class: "form-control color", type: "color" %>
         <%= f.text_field :primary_color, id:"project_primary_color_hex", class: "form-control hex", data: {"connectable-to" => 'project_primary_color'}  %>

@@ -3,8 +3,7 @@ class Project < ActiveRecord::Base
   validates :title, presence: true
   validates :primary_color, css_color: true, if: :primary_color
   validates :secondary_color, css_color: true, if: :secondary_color
-
-  # TODO Add photo overlay color attribute
+  validates :overlay_color, css_color: true, if: :overlay_color
 
   def kit
     # Loading kit from file as the internet sucks
@@ -27,6 +26,7 @@ class Project < ActiveRecord::Base
     sass += font_sets.map(&:uncompiled_sass).join
     sass += primary_color_sass if primary_color
     sass += secondary_color_sass if secondary_color
+    sass += overlay_color_sass if overlay_color
     Sass::Engine.new(sass, syntax: :scss).to_css
   end
 
@@ -53,15 +53,19 @@ class Project < ActiveRecord::Base
 
   def secondary_color_sass
     <<-END
-      .project-#{slug} {
-        .-overlay-color:before {
-          background: rgba(#{secondary_color}, 0.35);
-        }
-
-        .m-row .m-row__inner q span {
-          color: #{secondary_color};
-        }
+      .m-row .m-row__inner q span {
+        color: #{secondary_color};
       }
+    END
+  end
+
+  def overlay_color_sass
+    <<-END
+    .-overlay {
+      &:before {
+        background: rgba(#{overlay_color}, 0.5);
+      }
+    }
     END
   end
 end
