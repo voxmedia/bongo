@@ -62,7 +62,7 @@ class Project < ActiveRecord::Base
   def overlay_color_sass
     <<-END
    .m-row .m-row__box.half.has_background_image:before, .m-row .m-row__box.third.has_background_image:before, .m-row .m-row__inner .text.feature:before {
-      background-color: rgba(#{overlay_color}, 0.5);
+      background-color: rgba(#{overlay_color}, 0.7);
     }
     END
   end
