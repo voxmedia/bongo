@@ -99,8 +99,8 @@ BNG.App = (function($) {
   };
 
   var closeModal = function() {
-    $('.project-form').hide();
-    $('.fontset-forms').hide();
+    $('.project-form').fadeOut().delay(1500);
+    $('.fontset-forms').fadeOut().delay(1500);
   };
 
   var attachGenericFormEvents = function() {
@@ -113,6 +113,7 @@ BNG.App = (function($) {
     $("input[type=submit]").on('click', function(e){
       e.preventDefault();
       $(document).trigger("formChange");
+      closeModal();
     });
   }
 
